@@ -1,0 +1,120 @@
+.mf_share
+{
+	list-style: none;
+}
+
+	.mf_share li
+	{
+		display: inline-block;
+		font-size: 1.4em;
+		padding: .6em;
+		text-align: center;
+		white-space: nowrap;
+		min-width: 2.8em;
+	}
+
+		.mf_share li a
+		{
+			color: inherit;
+			display: block;
+		}
+
+			.mf_share li a span
+			{
+				display: inline-block;
+				padding-left: .5em;
+			}
+
+	.mf_share .share_text
+	{
+		padding-left: .6em;
+		padding-right: .6em;
+	}
+
+	.email_link, .email_form
+	{
+		color: #999;
+	}
+
+		.email_link:hover, .email_form:hover
+		{
+			background: #999;
+			color: #fff;
+		}
+
+	.print
+	{
+		color: #999;
+	}
+
+		.print:hover
+		{
+			background: #999;
+			color: #fff;
+		}
+
+	.facebook
+	{
+		color: #3b5998;
+	}
+
+		.facebook:hover
+		{
+			background: #3b5998;
+			color: #fff;
+		}
+
+	.google-plus
+	{
+		color: #dd4b39;
+	}
+
+		.google-plus:hover
+		{
+			background: #dd4b39;
+			color: #fff;
+		}
+
+	.linkedin
+	{
+		color: #1a85bc;
+	}
+
+		.linkedin:hover
+		{
+			background: #1a85bc;
+			color: #fff;
+		}
+
+	.pinterest
+	{
+		color: #bd2126;
+	}
+
+		.pinterest:hover
+		{
+			background: #bd2126;
+			color: #fff;
+		}
+
+	.reddit
+	{
+		color: #cee3f8;
+	}
+
+		.reddit:hover
+		{
+			background: #cee3f8;
+			color: #fff;
+		}
+
+	.twitter
+	{
+		color: #55acee;
+	}
+
+		.twitter:hover
+		{
+			background: #55acee;
+			color: #fff;
+		}
