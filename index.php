@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: MF Share
-Plugin URI: 
-Version: 1.0.5
+Plugin URI: www.github.com/frostkom/mf_share
+Version: 1.0.6
 Author: Martin Fors
 Author URI: www.frostkom.se
 */
