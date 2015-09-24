@@ -55,7 +55,10 @@ function settings_share()
 	}
 }
 
-function settings_share_callback(){}
+function settings_share_callback()
+{
+	echo "<div id='settings_share'></div>";
+}
 
 function setting_share_form_callback()
 {
