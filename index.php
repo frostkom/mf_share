@@ -1,13 +1,11 @@
 <?php
 /*
 Plugin Name: MF Share
-Plugin URI: www.github.com/frostkom/mf_share
-Version: 1.1.0
+Plugin URI: http://github.com/frostkom/mf_share
+Version: 1.1.1
 Author: Martin Fors
 Author URI: http://frostkom.se
 */
-
-add_action('init', 'init_share');
 
 if(is_admin())
 {
@@ -18,16 +16,10 @@ if(is_admin())
 
 else
 {
+	add_action('init', 'init_share');
 	add_action('wp_footer', 'footer_share');
 	add_filter('the_content', 'content_share');
 	add_shortcode('mf_share', 'shortcode_share');
-}
-
-function add_action_share($links)
-{
-	$links[] = "<a href='".admin_url('options-general.php?page=settings_mf_base#settings_share')."'>".__("Settings", 'lang_share')."</a>";
-
-	return $links;
 }
 
 load_plugin_textdomain('lang_share', false, dirname(plugin_basename(__FILE__)).'/lang/');

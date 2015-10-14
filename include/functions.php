@@ -1,5 +1,12 @@
 <?php
 
+function add_action_share($links)
+{
+	$links[] = "<a href='".admin_url('options-general.php?page=settings_mf_base#settings_share')."'>".__("Settings", 'lang_share')."</a>";
+
+	return $links;
+}
+
 function init_share()
 {
 	wp_enqueue_style('style_share', plugins_url()."/mf_share/include/style.css");
@@ -213,7 +220,7 @@ function get_share_content($type = "")
 					$setting_share_email_content = get_option('setting_share_email_content');
 
 					$out .= "<li class='share_text'>".__("Recommend to a friend", 'lang_share')."</li>";
-				
+
 					if(in_array("email_link", $setting_share_options))
 					{
 						$link_extra = "";
