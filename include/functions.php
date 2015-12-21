@@ -19,7 +19,7 @@ function settings_share()
 
 	add_settings_section(
 		$options_area,
-		__("Share", 'lang_webshop'),
+		"",
 		$options_area.'_callback',
 		$options_page
 	);
@@ -64,14 +64,13 @@ function settings_share()
 
 function settings_share_callback()
 {
-	echo "<div id='settings_share'></div>";
+	echo "<div id='settings_share'>&nbsp;</div>
+	<a href='#settings_share'><h3>".__("Share", 'lang_webshop')."</h3></a>";
 }
 
 function setting_share_form_callback()
 {
 	global $wpdb;
-
-	$is_super_admin = current_user_can('update_core');
 
 	$option = get_option('setting_share_form');
 
@@ -79,7 +78,7 @@ function setting_share_form_callback()
 		<select name='setting_share_form'>
 			<option value=''>-- ".__("Choose here", 'lang_share')." --</option>";
 
-			$result = $wpdb->get_results("SELECT queryID, queryName FROM ".$wpdb->base_prefix."query WHERE queryDeleted = '0'".($is_super_admin ? "" : " AND (blogID = '".$wpdb->blogid."' OR blogID IS null)")." ORDER BY queryCreated DESC");
+			$result = $wpdb->get_results("SELECT queryID, queryName FROM ".$wpdb->base_prefix."query WHERE queryDeleted = '0'".(IS_ADMIN ? "" : " AND (blogID = '".$wpdb->blogid."' OR blogID IS null)")." ORDER BY queryCreated DESC");
 
 			foreach($result as $r)
 			{
@@ -190,8 +189,6 @@ function setting_share_email_content_callback()
 	echo "<label>";
 
 		wp_editor($option, "setting_share_email_content");
-
-		//<input type='text' name='setting_share_email_content' value='".$option."' class='widefat'>
 
 	echo "</label>";
 }

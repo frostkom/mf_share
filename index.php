@@ -2,10 +2,13 @@
 /*
 Plugin Name: MF Share
 Plugin URI: http://github.com/frostkom/mf_share
-Version: 1.1.1
+Description: 
+Version: 1.1.5
 Author: Martin Fors
 Author URI: http://frostkom.se
 */
+
+include_once("include/functions.php");
 
 if(is_admin())
 {
@@ -23,8 +26,6 @@ else
 }
 
 load_plugin_textdomain('lang_share', false, dirname(plugin_basename(__FILE__)).'/lang/');
-
-require_once("include/functions.php");
 
 function shortcode_share($atts)
 {
