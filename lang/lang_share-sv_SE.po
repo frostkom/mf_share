@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MF Forms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-25 11:31+0100\n"
+"POT-Creation-Date: 2016-02-08 13:31+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: Martin Fors\n"
@@ -19,11 +19,6 @@ msgstr ""
 msgid "Settings"
 msgstr "Inställningar"
 
-#: ../include/functions.php:22
-#: ../include/functions.php:261
-msgid "Share"
-msgstr "Dela"
-
 #: ../include/functions.php:32
 msgid "Show these options"
 msgstr "Visa dessa val"
@@ -34,12 +29,12 @@ msgid "Show these here"
 msgstr "Visa dessa här"
 
 #: ../include/functions.php:34
-#: ../include/functions.php:265
-#: ../include/functions.php:270
-#: ../include/functions.php:275
-#: ../include/functions.php:283
-#: ../include/functions.php:291
-#: ../include/functions.php:299
+#: ../include/functions.php:261
+#: ../include/functions.php:266
+#: ../include/functions.php:271
+#: ../include/functions.php:279
+#: ../include/functions.php:287
+#: ../include/functions.php:295
 msgid "Share on"
 msgstr "Dela på"
 
@@ -55,49 +50,54 @@ msgstr "Ämne till e-post"
 msgid "E-mail content"
 msgstr "Innehåll i e-post"
 
-#: ../include/functions.php:80
+#: ../include/functions.php:67
+#: ../include/functions.php:257
+msgid "Share"
+msgstr "Dela"
+
+#: ../include/functions.php:78
 msgid "Choose here"
 msgstr "Välj här"
 
-#: ../include/functions.php:102
+#: ../include/functions.php:100
 msgid "E-mail link"
 msgstr "E-postlänk"
 
-#: ../include/functions.php:109
-#: ../include/functions.php:254
+#: ../include/functions.php:107
+#: ../include/functions.php:250
 msgid "Print"
 msgstr "Skriv ut"
 
-#: ../include/functions.php:124
-#: ../include/functions.php:167
+#: ../include/functions.php:122
+#: ../include/functions.php:165
 msgid "Above page content"
 msgstr "Ovanför sidinnehåll"
 
-#: ../include/functions.php:125
-#: ../include/functions.php:168
+#: ../include/functions.php:123
+#: ../include/functions.php:166
 msgid "Below page content"
 msgstr "Under sidinnehåll"
 
-#: ../include/functions.php:126
-#: ../include/functions.php:169
+#: ../include/functions.php:124
+#: ../include/functions.php:167
 msgid "End of page"
 msgstr "Slutet av sidan"
 
-#: ../include/functions.php:130
-#: ../include/functions.php:173
+#: ../include/functions.php:128
+#: ../include/functions.php:171
 msgid "Can also be displayed by adding the shortcode"
 msgstr "Kan också visas genom att lägga in kortkoden"
 
-#: ../include/functions.php:222
+#: ../include/functions.php:218
 msgid "Recommend to a friend"
 msgstr "Tipsa en vän"
 
-#: ../include/functions.php:238
-#: ../include/functions.php:247
+#: ../include/functions.php:234
+#: ../include/functions.php:243
 msgid "Recommend this page to a friend"
 msgstr "Tipsa en vän om denna sida"
 
-#: ../include/functions.php:255
+#: ../include/functions.php:251
 msgid "Print this page"
 msgstr "Skriv ut denna sida"
 

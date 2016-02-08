@@ -64,8 +64,7 @@ function settings_share()
 
 function settings_share_callback()
 {
-	echo "<div id='settings_share'>&nbsp;</div>
-	<a href='#settings_share'><h3>".__("Share", 'lang_webshop')."</h3></a>";
+	echo settings_header('settings_share', __("Share", 'lang_webshop'));
 }
 
 function setting_share_form_callback()
@@ -188,7 +187,7 @@ function setting_share_email_content_callback()
 
 	echo "<label>";
 
-		wp_editor($option, "setting_share_email_content");
+		wp_editor($option, "setting_share_email_content", array('textarea_rows' => 5));
 
 	echo "</label>";
 }
