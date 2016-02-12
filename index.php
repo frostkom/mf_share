@@ -3,7 +3,7 @@
 Plugin Name: MF Share
 Plugin URI: http://github.com/frostkom/mf_share
 Description: 
-Version: 1.1.6
+Version: 1.1.9
 Author: Martin Fors
 Author URI: http://frostkom.se
 */

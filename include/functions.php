@@ -14,15 +14,9 @@ function init_share()
 
 function settings_share()
 {
-	$options_page = "settings_mf_base";
 	$options_area = "settings_share";
 
-	add_settings_section(
-		$options_area,
-		"",
-		$options_area.'_callback',
-		$options_page
-	);
+	add_settings_section($options_area, "", $options_area.'_callback', BASE_OPTIONS_PAGE);
 
 	$setting_share_options = get_option('setting_share_options');
 	$setting_share_services = get_option('setting_share_services');
@@ -56,15 +50,15 @@ function settings_share()
 
 	foreach($arr_settings as $handle => $text)
 	{
-		add_settings_field($handle, $text, $handle."_callback", $options_page, $options_area);
+		add_settings_field($handle, $text, $handle."_callback", BASE_OPTIONS_PAGE, $options_area);
 
-		register_setting($options_page, $handle);
+		register_setting(BASE_OPTIONS_PAGE, $handle);
 	}
 }
 
 function settings_share_callback()
 {
-	echo settings_header('settings_share', __("Share", 'lang_webshop'));
+	echo settings_header('settings_share', __("Share", 'lang_share'));
 }
 
 function setting_share_form_callback()
@@ -73,24 +67,10 @@ function setting_share_form_callback()
 
 	$option = get_option('setting_share_form');
 
-	echo "<label>
-		<select name='setting_share_form'>
-			<option value=''>-- ".__("Choose here", 'lang_share')." --</option>";
+	$obj_form = new mf_form();
+	$arr_data = $obj_form->get_form_array();
 
-			$result = $wpdb->get_results("SELECT queryID, queryName FROM ".$wpdb->base_prefix."query WHERE queryDeleted = '0'".(IS_ADMIN ? "" : " AND (blogID = '".$wpdb->blogid."' OR blogID IS null)")." ORDER BY queryCreated DESC");
-
-			foreach($result as $r)
-			{
-				$result = get_page_from_form($r->queryID);
-
-				if(count($result) > 0)
-				{
-					echo "<option value='".$r->queryID."'".($option == $r->queryID ? " selected" : "").">".$r->queryName."</option>";
-				}
-			}
-
-		echo "</select>
-	</label>";
+	echo show_select(array('data' => $arr_data, 'name' => 'setting_share_form', 'compare' => $option));
 }
 
 function setting_share_options_callback()
