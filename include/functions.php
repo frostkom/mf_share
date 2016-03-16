@@ -1,15 +1,8 @@
 <?php
 
-function add_action_share($links)
-{
-	$links[] = "<a href='".admin_url('options-general.php?page=settings_mf_base#settings_share')."'>".__("Settings", 'lang_share')."</a>";
-
-	return $links;
-}
-
 function init_share()
 {
-	wp_enqueue_style('style_share', plugins_url()."/mf_share/include/style.css");
+	wp_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css");
 }
 
 function settings_share()
@@ -58,7 +51,9 @@ function settings_share()
 
 function settings_share_callback()
 {
-	echo settings_header('settings_share', __("Share", 'lang_share'));
+	$setting_key = get_setting_key(__FUNCTION__);
+
+	echo settings_header($setting_key, __("Share", 'lang_share'));
 }
 
 function setting_share_form_callback()
@@ -146,30 +141,34 @@ function setting_share_visible_callback()
 	$arr_data[] = array("below_content", __("Below page content", 'lang_share'));
 	$arr_data[] = array("end_of_page", __("End of page", 'lang_share'));
 
-	echo "<label>"
-		.show_select(array('data' => $arr_data, 'name' => 'setting_share_visible[]', 'compare' => $option))
-			."<span class='description'>".__("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='services']</span>"
-	."</label>";
+	echo show_select(array('data' => $arr_data, 'name' => 'setting_share_visible[]', 'compare' => $option, 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='services']"));
 }
 
 function setting_share_email_subject_callback()
 {
 	$option = get_option('setting_share_email_subject');
 
-	echo "<label>
+	echo show_textfield(array('name' => "setting_share_email_subject", 'value' => $option, 'xtra' => " class='widefat'"));
+
+	/*echo "<label>
 		<input type='text' name='setting_share_email_subject' value='".$option."' class='widefat'>
-	</label>";
+	</label>";*/
 }
 
 function setting_share_email_content_callback()
 {
 	$option = get_option('setting_share_email_content');
 
-	echo "<label>";
+	mf_editor($option, "setting_share_email_content", array('textarea_rows' => 5));
+}
 
-		wp_editor($option, "setting_share_email_content", array('textarea_rows' => 5));
+function shortcode_share($atts)
+{
+	extract(shortcode_atts(array(
+		'type' => ''
+	), $atts));
 
-	echo "</label>";
+	return get_share_content($type);
 }
 
 function get_share_content($type = "")
