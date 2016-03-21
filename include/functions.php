@@ -149,17 +149,18 @@ function setting_share_email_subject_callback()
 	$option = get_option('setting_share_email_subject');
 
 	echo show_textfield(array('name' => "setting_share_email_subject", 'value' => $option, 'xtra' => " class='widefat'"));
-
-	/*echo "<label>
-		<input type='text' name='setting_share_email_subject' value='".$option."' class='widefat'>
-	</label>";*/
 }
 
 function setting_share_email_content_callback()
 {
 	$option = get_option('setting_share_email_content');
 
-	mf_editor($option, "setting_share_email_content", array('textarea_rows' => 5));
+	mf_editor($option, "setting_share_email_content", array(
+		'class' => "hide_media_button hide_tabs",
+		'mini_toolbar' => true,
+		'textarea_rows' => 5,
+		'statusbar' => false,
+	));
 }
 
 function shortcode_share($atts)
