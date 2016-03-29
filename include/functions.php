@@ -7,7 +7,7 @@ function init_share()
 
 function settings_share()
 {
-	$options_area = "settings_share";
+	$options_area = __FUNCTION__;
 
 	add_settings_section($options_area, "", $options_area.'_callback', BASE_OPTIONS_PAGE);
 
@@ -58,104 +58,98 @@ function settings_share_callback()
 
 function setting_share_form_callback()
 {
-	global $wpdb;
-
-	$option = get_option('setting_share_form');
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
 
 	$obj_form = new mf_form();
 	$arr_data = $obj_form->get_form_array();
 
-	echo show_select(array('data' => $arr_data, 'name' => 'setting_share_form', 'compare' => $option));
+	echo show_select(array('data' => $arr_data, 'name' => $setting_key, 'compare' => $option));
 }
 
 function setting_share_options_callback()
 {
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
+
 	$arr_data = array();
 
-	$arr_data[] = array("email_link", __("E-mail link", 'lang_share'));
+	$arr_data["email_link"] = __("E-mail link", 'lang_share');
 
 	/*if(get_option('setting_share_form') > 0)
 	{
-		$arr_data[] = array("email_form", __("E-mail form", 'lang_share'));
+		$arr_data["email_form"] = __("E-mail form", 'lang_share');
 	}*/
 
-	$arr_data[] = array("print", __("Print", 'lang_share'));
+	$arr_data["print"] = __("Print", 'lang_share');
 
-	$option = get_option('setting_share_options');
+	echo show_select(array('data' => $arr_data, 'name' => $setting_key.'[]', 'compare' => $option));
+}
 
-	echo "<label>"
-		.show_select(array('data' => $arr_data, 'name' => 'setting_share_options[]', 'compare' => $option))
-	."</label>";
+function get_share_place_for_select()
+{
+	return array(
+		'above_content' => __("Above page content", 'lang_share'),
+		'below_content' => __("Below page content", 'lang_share'),
+		'end_of_page' => __("End of page", 'lang_share'),
+	);
 }
 
 function setting_share_options_visible_callback()
 {
-	$option = get_option('setting_share_options_visible');
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
 
-	$arr_data = array();
-
-	$arr_data[] = array("above_content", __("Above page content", 'lang_share'));
-	$arr_data[] = array("below_content", __("Below page content", 'lang_share'));
-	$arr_data[] = array("end_of_page", __("End of page", 'lang_share'));
-
-	echo "<label>"
-		.show_select(array('data' => $arr_data, 'name' => 'setting_share_options_visible[]', 'compare' => $option))
-		."<span class='description'>".__("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='options']</span>"
-	."</label>";
+	echo show_select(array('data' => get_share_place_for_select(), 'name' => $setting_key.'[]', 'compare' => $option, 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='options']"));
 }
 
 function setting_share_services_callback()
 {
-	$option = get_option('setting_share_services');
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
 
-	$arr_data = array();
+	$arr_data = array(
+		'facebook' => "Facebook",
+		'google-plus' => "Google+",
+		'linkedin' => "LinkedIn",
+		'pinterest' => "Pinterest",
+		'reddit' => "Reddit",
+		'twitter' => "Twitter",
+	);
 
-	$arr_data[] = array("facebook", "Facebook");
-	$arr_data[] = array("google-plus", "Google+");
-	$arr_data[] = array("linkedin", "LinkedIn");
-	$arr_data[] = array("pinterest", "Pinterest");
-	$arr_data[] = array("reddit", "Reddit");
-	$arr_data[] = array("twitter", "Twitter");
-
-	echo "<label>"
-		.show_select(array('data' => $arr_data, 'name' => 'setting_share_services[]', 'compare' => $option))
-	."</label>";
+	echo show_select(array('data' => $arr_data, 'name' => $setting_key.'[]', 'compare' => $option));
 }
 
 function setting_share_twitter_callback()
 {
-	$option = get_option('setting_share_twitter');
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
 
-	echo "<label>"
-		.show_textfield(array('name' => 'setting_share_twitter', 'value' => $option, 'placeholder' => "@twitter"))
-	."</label>";
+	echo show_textfield(array('name' => $setting_key, 'value' => $option, 'placeholder' => "@twitter"));
 }
 
 function setting_share_visible_callback()
 {
-	$option = get_option('setting_share_visible');
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
 
-	$arr_data = array();
-
-	$arr_data[] = array("above_content", __("Above page content", 'lang_share'));
-	$arr_data[] = array("below_content", __("Below page content", 'lang_share'));
-	$arr_data[] = array("end_of_page", __("End of page", 'lang_share'));
-
-	echo show_select(array('data' => $arr_data, 'name' => 'setting_share_visible[]', 'compare' => $option, 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='services']"));
+	echo show_select(array('data' => get_share_place_for_select(), 'name' => $setting_key."[]", 'compare' => $option, 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='services']"));
 }
 
 function setting_share_email_subject_callback()
 {
-	$option = get_option('setting_share_email_subject');
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
 
-	echo show_textfield(array('name' => "setting_share_email_subject", 'value' => $option, 'xtra' => " class='widefat'"));
+	echo show_textfield(array('name' => $setting_key, 'value' => $option, 'xtra' => " class='widefat'"));
 }
 
 function setting_share_email_content_callback()
 {
-	$option = get_option('setting_share_email_content');
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
 
-	mf_editor($option, "setting_share_email_content", array(
+	mf_editor($option, $setting_key, array(
 		'class' => "hide_media_button hide_tabs",
 		'mini_toolbar' => true,
 		'textarea_rows' => 5,
