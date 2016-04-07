@@ -30,7 +30,7 @@ function settings_share()
 		$arr_settings["setting_share_visible"] = __("Show these here", 'lang_share');
 	}
 
-	/*if(is_plugin_active('mf_form/index.php'))
+	/*if(is_plugin_active("mf_form/index.php"))
 	{
 		$arr_settings["setting_share_form"] = __("Form for sharing", 'lang_share');
 	}*/
@@ -149,7 +149,7 @@ function setting_share_email_content_callback()
 	$setting_key = get_setting_key(__FUNCTION__);
 	$option = get_option($setting_key);
 
-	mf_editor($option, $setting_key, array(
+	echo mf_editor($option, $setting_key, array(
 		'class' => "hide_media_button hide_tabs",
 		'mini_toolbar' => true,
 		'textarea_rows' => 5,
