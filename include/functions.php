@@ -64,7 +64,7 @@ function setting_share_form_callback()
 	$obj_form = new mf_form();
 	$arr_data = $obj_form->get_form_array();
 
-	echo show_select(array('data' => $arr_data, 'name' => $setting_key, 'compare' => $option));
+	echo show_select(array('data' => $arr_data, 'name' => $setting_key, 'compare' => $option, 'suffix' => "<a href='".admin_url("admin.php?page=mf_form/create/index.php")."'><i class='fa fa-lg fa-plus'></i></a>"));
 }
 
 function setting_share_options_callback()
