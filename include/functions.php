@@ -64,7 +64,7 @@ function setting_share_form_callback()
 	$obj_form = new mf_form();
 	$arr_data = $obj_form->get_form_array();
 
-	echo show_select(array('data' => $arr_data, 'name' => $setting_key, 'compare' => $option, 'suffix' => "<a href='".admin_url("admin.php?page=mf_form/create/index.php")."'><i class='fa fa-lg fa-plus'></i></a>"));
+	echo show_select(array('data' => $arr_data, 'name' => $setting_key, 'value' => $option, 'suffix' => "<a href='".admin_url("admin.php?page=mf_form/create/index.php")."'><i class='fa fa-lg fa-plus'></i></a>"));
 }
 
 function setting_share_options_callback()
@@ -83,7 +83,7 @@ function setting_share_options_callback()
 
 	$arr_data["print"] = __("Print", 'lang_share');
 
-	echo show_select(array('data' => $arr_data, 'name' => $setting_key.'[]', 'compare' => $option));
+	echo show_select(array('data' => $arr_data, 'name' => $setting_key.'[]', 'value' => $option));
 }
 
 function get_share_place_for_select()
@@ -100,7 +100,7 @@ function setting_share_options_visible_callback()
 	$setting_key = get_setting_key(__FUNCTION__);
 	$option = get_option($setting_key);
 
-	echo show_select(array('data' => get_share_place_for_select(), 'name' => $setting_key.'[]', 'compare' => $option, 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='options']"));
+	echo show_select(array('data' => get_share_place_for_select(), 'name' => $setting_key.'[]', 'value' => $option, 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='options']"));
 }
 
 function setting_share_services_callback()
@@ -117,7 +117,7 @@ function setting_share_services_callback()
 		'twitter' => "Twitter",
 	);
 
-	echo show_select(array('data' => $arr_data, 'name' => $setting_key.'[]', 'compare' => $option));
+	echo show_select(array('data' => $arr_data, 'name' => $setting_key.'[]', 'value' => $option));
 }
 
 function setting_share_twitter_callback()
@@ -133,7 +133,7 @@ function setting_share_visible_callback()
 	$setting_key = get_setting_key(__FUNCTION__);
 	$option = get_option($setting_key);
 
-	echo show_select(array('data' => get_share_place_for_select(), 'name' => $setting_key."[]", 'compare' => $option, 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='services']"));
+	echo show_select(array('data' => get_share_place_for_select(), 'name' => $setting_key."[]", 'value' => $option, 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='services']"));
 }
 
 function setting_share_email_subject_callback()
@@ -243,17 +243,13 @@ function get_share_content($type = "")
 				if(in_array("linkedin", $setting_share_services))
 				{
 					$out .= "<li class='linkedin'><a href='//www.linkedin.com/shareArticle?url=".$url_to_share."&mini=true' target='_blank' title='".__("Share on", 'lang_share')." LinkedIn'><i class='fa fa-linkedin'></i></a></li>";
-					//&source=".$url_to_share."
-					//&title=Jonathan%20Suh
-					//&summary=Short%20summary
+					//&source=".$url_to_share."&title=Jonathan%20Suh&summary=Short%20summary
 				}
 
 				if(in_array("pinterest", $setting_share_services))
 				{
 					$out .= "<li class='pinterest'><a href='//www.pinterest.com/pin/create/button/?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Pinterest'><i class='fa fa-pinterest'></i></a></li>";
-					//&media=https%3A%2F%2Fjonsuh.com%2Ficon.png
-					//&description=Short%20description
-					//&hashtags=web,development
+					//&media=https%3A%2F%2Fjonsuh.com%2Ficon.png&description=Short%20description&hashtags=web,development
 				}
 
 				if(in_array("reddit", $setting_share_services))
@@ -276,9 +272,7 @@ function get_share_content($type = "")
 
 						$out .= "</a>
 					</li>";
-					//&text=TWEET_TO_SHARE
-					//&via=USERNAME_TO_SHARE
-					//&hashtags=web,development
+					//&text=TWEET_TO_SHARE&via=USERNAME_TO_SHARE&hashtags=web,development
 				}
 			}
 

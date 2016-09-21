@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 15:43+0100\n"
+"POT-Creation-Date: 2016-08-22 11:36+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -28,9 +28,9 @@ msgstr "Visa dessa här"
 #: ../include/functions.php:235
 #: ../include/functions.php:240
 #: ../include/functions.php:245
-#: ../include/functions.php:253
-#: ../include/functions.php:261
-#: ../include/functions.php:269
+#: ../include/functions.php:251
+#: ../include/functions.php:257
+#: ../include/functions.php:265
 msgid "Share on"
 msgstr "Dela på"
 
