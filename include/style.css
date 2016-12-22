@@ -5,18 +5,31 @@
 
 	.mf_share li
 	{
+		border: .2em solid #999;
+		border-radius: .2em;
 		display: inline-block;
-		font-size: 1.4em;
-		padding: .6em;
+		/*font-size: 1.4em;*/
 		text-align: center;
 		white-space: nowrap;
-		min-width: 2.8em;
 	}
+
+		.mf_share li + li
+		{
+			margin-left: .5em;
+		}
+
+		.mf_share li a, .mf_share li.share_text
+		{
+			padding: .1em .6em;
+			min-width: 2.8em;
+		}
 
 		.mf_share li a
 		{
+			border-bottom: 0;
 			color: inherit;
 			display: block;
+			text-decoration: none;
 		}
 
 			.mf_share li a span
@@ -25,96 +38,102 @@
 				padding-left: .5em;
 			}
 
-	.mf_share .share_text
+	/*.mf_share .share_text
 	{
 		padding-left: .6em;
 		padding-right: .6em;
-	}
+	}*/
 
-	.mf_share .email_link, .mf_share .email_form
+	.mf_share .contact
 	{
-		color: #999;
+		color: #fff;
 	}
 
-		.mf_share .email_link:hover, .mf_share .email_form:hover
+		.mf_share .contact:hover
 		{
-			background: #999;
-			color: #fff;
+			background: #fff;
+			color: #666;
 		}
 
-	.mf_share .print
+	.mf_share .social
 	{
-		color: #999;
+		background: #999;
+		color: #fff;
 	}
 
-		.mf_share .print:hover
+		.mf_share .social:hover
 		{
-			background: #999;
-			color: #fff;
+			background: #fff;
 		}
 
 	.mf_share .facebook
 	{
-		color: #3b5998;
+		background: #3b5998;
+		border-color: #3b5998;
 	}
 
 		.mf_share .facebook:hover
 		{
-			background: #3b5998;
-			color: #fff;
+			color: #3b5998;
 		}
 
 	.mf_share .google-plus
 	{
-		color: #dd4b39;
+		background: #dd4b39;
+		border-color: #dd4b39;
 	}
 
 		.mf_share .google-plus:hover
 		{
-			background: #dd4b39;
-			color: #fff;
+			color: #dd4b39;
 		}
 
 	.mf_share .linkedin
 	{
-		color: #1a85bc;
+		background: #1a85bc;
+		border-color: #1a85bc;
 	}
 
 		.mf_share .linkedin:hover
 		{
-			background: #1a85bc;
-			color: #fff;
+			color: #1a85bc;
 		}
 
 	.mf_share .pinterest
 	{
-		color: #bd2126;
+		background: #bd2126;
+		border-color: #bd2126;
 	}
 
 		.mf_share .pinterest:hover
 		{
-			background: #bd2126;
-			color: #fff;
+			color: #bd2126;
 		}
 
 	.mf_share .reddit
 	{
-		color: #cee3f8;
+		background: #cee3f8;
+		border-color: #cee3f8;
 	}
 
 		.mf_share .reddit:hover
 		{
-			background: #cee3f8;
-			color: #fff;
+			color: #cee3f8;
 		}
 
 	.mf_share .twitter
 	{
-		color: #55acee;
+		background: #55acee;
+		border-color: #55acee;
 	}
 
 		.mf_share .twitter:hover
 		{
-			background: #55acee;
-			color: #fff;
+			color: #55acee;
 		}
+
+/* Theme */
+.meta .mf_share
+{
+	display: inline-block;
+}

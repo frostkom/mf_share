@@ -3,7 +3,7 @@
 Plugin Name: MF Share
 Plugin URI: https://github.com/frostkom/mf_share
 Description: 
-Version: 1.3.10
+Version: 2.0.4
 Author: Martin Fors
 Author URI: http://frostkom.se
 Text Domain: lang_share
@@ -25,7 +25,10 @@ else
 {
 	add_action('init', 'init_share');
 	add_action('wp_footer', 'footer_share');
+
 	add_filter('the_content', 'content_share');
+	add_filter('the_content_meta', 'content_meta_share', 10, 2);
+
 	add_shortcode('mf_share', 'shortcode_share');
 }
 

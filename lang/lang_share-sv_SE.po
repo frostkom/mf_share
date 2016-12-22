@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-22 11:36+0100\n"
+"POT-Creation-Date: 2016-12-21 14:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -25,12 +25,12 @@ msgid "Show these here"
 msgstr "Visa dessa här"
 
 #: ../include/functions.php:21
-#: ../include/functions.php:235
-#: ../include/functions.php:240
-#: ../include/functions.php:245
-#: ../include/functions.php:251
-#: ../include/functions.php:257
-#: ../include/functions.php:265
+#: ../include/functions.php:238
+#: ../include/functions.php:243
+#: ../include/functions.php:248
+#: ../include/functions.php:254
+#: ../include/functions.php:260
+#: ../include/functions.php:268
 msgid "Share on"
 msgstr "Dela på"
 
@@ -47,7 +47,7 @@ msgid "E-mail content"
 msgstr "Innehåll i e-post"
 
 #: ../include/functions.php:56
-#: ../include/functions.php:231
+#: ../include/functions.php:234
 msgid "Share"
 msgstr "Dela"
 
@@ -56,7 +56,7 @@ msgid "E-mail link"
 msgstr "E-postlänk"
 
 #: ../include/functions.php:84
-#: ../include/functions.php:224
+#: ../include/functions.php:227
 msgid "Print"
 msgstr "Skriv ut"
 
@@ -65,28 +65,32 @@ msgid "Above page content"
 msgstr "Ovanför sidinnehåll"
 
 #: ../include/functions.php:93
+msgid "After post heading"
+msgstr "Efter rubrik för inlägg"
+
+#: ../include/functions.php:94
 msgid "Below page content"
 msgstr "Under sidinnehåll"
 
-#: ../include/functions.php:94
+#: ../include/functions.php:95
 msgid "End of page"
 msgstr "Slutet av sidan"
 
-#: ../include/functions.php:103
-#: ../include/functions.php:136
+#: ../include/functions.php:104
+#: ../include/functions.php:137
 msgid "Can also be displayed by adding the shortcode"
 msgstr "Kan också visas genom att lägga in kortkoden"
 
-#: ../include/functions.php:192
+#: ../include/functions.php:195
 msgid "Recommend to a friend"
 msgstr "Tipsa en vän"
 
-#: ../include/functions.php:208
-#: ../include/functions.php:217
+#: ../include/functions.php:211
+#: ../include/functions.php:220
 msgid "Recommend this page to a friend"
 msgstr "Tipsa en vän om denna sida"
 
-#: ../include/functions.php:225
+#: ../include/functions.php:228
 msgid "Print this page"
 msgstr "Skriv ut denna sida"
 
