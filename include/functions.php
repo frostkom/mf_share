@@ -16,29 +16,29 @@ function settings_share()
 
 	$arr_settings = array();
 
-	$arr_settings["setting_share_options"] = __("Show these options", 'lang_share');
-	$arr_settings["setting_share_options_visible"] = __("Show these here", 'lang_share');
-	$arr_settings["setting_share_services"] = __("Share on", 'lang_share');
+	$arr_settings['setting_share_options'] = __("Show these options", 'lang_share');
+	$arr_settings['setting_share_options_visible'] = __("Show these here", 'lang_share');
+	$arr_settings['setting_share_services'] = __("Share on", 'lang_share');
 
 	if(is_array($setting_share_services) && in_array("twitter", $setting_share_services))
 	{
-		$arr_settings["setting_share_twitter"] = __("Twitter handle", 'lang_share');
+		$arr_settings['setting_share_twitter'] = __("Twitter handle", 'lang_share');
 	}
 
 	if(is_array($setting_share_services) && count($setting_share_services) > 0)
 	{
-		$arr_settings["setting_share_visible"] = __("Show these here", 'lang_share');
+		$arr_settings['setting_share_visible'] = __("Show these here", 'lang_share');
 	}
 
 	/*if(is_plugin_active("mf_form/index.php"))
 	{
-		$arr_settings["setting_share_form"] = __("Form for sharing", 'lang_share');
+		$arr_settings['setting_share_form'] = __("Form for sharing", 'lang_share');
 	}*/
 
 	if(is_array($setting_share_options) && in_array("email_link", $setting_share_options))
 	{
-		$arr_settings["setting_share_email_subject"] = __("E-mail subject", 'lang_share');
-		$arr_settings["setting_share_email_content"] = __("E-mail content", 'lang_share');
+		$arr_settings['setting_share_email_subject'] = __("E-mail subject", 'lang_share');
+		$arr_settings['setting_share_email_content'] = __("E-mail content", 'lang_share');
 	}
 
 	foreach($arr_settings as $handle => $text)
