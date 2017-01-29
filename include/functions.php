@@ -17,7 +17,12 @@ function settings_share()
 	$arr_settings = array();
 
 	$arr_settings['setting_share_options'] = __("Show these options", 'lang_share');
-	$arr_settings['setting_share_options_visible'] = __("Show these here", 'lang_share');
+
+	if(is_array($setting_share_options) && count($setting_share_options) > 0)
+	{
+		$arr_settings['setting_share_options_visible'] = __("Show these here", 'lang_share');
+	}
+
 	$arr_settings['setting_share_services'] = __("Share on", 'lang_share');
 
 	if(is_array($setting_share_services) && in_array("twitter", $setting_share_services))
