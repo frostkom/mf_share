@@ -5,6 +5,73 @@ function init_share()
 	wp_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css");
 }
 
+function get_share_options_for_select()
+{
+	$arr_data = array();
+
+	$arr_data["email_link"] = __("E-mail link", 'lang_share');
+	/*if(get_option('setting_share_form') > 0){$arr_data["email_form"] = __("E-mail form", 'lang_share');}*/
+	$arr_data["print"] = __("Print", 'lang_share');
+
+	return $arr_data;
+}
+
+function get_share_services_for_select()
+{
+	return array(
+		'facebook' => "Facebook",
+		'google-plus' => "Google+",
+		'linkedin' => "LinkedIn",
+		'pinterest' => "Pinterest",
+		'reddit' => "Reddit",
+		'twitter' => "Twitter",
+	);
+}
+
+function get_share_place_for_select()
+{
+	return array(
+		'above_content' => __("Above Content", 'lang_share'),
+		'after_post_heading' => __("After Heading", 'lang_share'),
+		'below_content' => __("Below Content", 'lang_share'),
+		'end_of_page' => __("In Footer", 'lang_share'),
+	);
+}
+
+function get_share_pages_for_select()
+{
+	$arr_pages = array();
+
+	get_post_children(array('output_array' => true), $arr_pages);
+
+	$arr_data = array();
+
+	$arr_data["is_404()"] = __("404", 'lang_share');
+	//$arr_data["is_archive()"] = __("Archive", 'lang_share');
+	//$arr_data["is_category()"] = __("Category", 'lang_share');
+	//$arr_data["is_front_page()"] = __("Front Page", 'lang_share');
+	//$arr_data["is_home()"] = __("Home", 'lang_share');
+	$arr_data["is_page()"] = __("Page", 'lang_share');
+	$arr_data['is_singular("post")'] = __("Post", 'lang_share');
+	$arr_data["is_search()"] = __("Search", 'lang_share');
+	//$arr_data["is_single()"] = __("Single", 'lang_share');
+	//$arr_data["is_sticky()"] = __("Sticky", 'lang_share');
+
+	if(count($arr_pages) > 0)
+	{
+		$arr_data["opt_start_pages"] = __("Pages", 'lang_share');
+
+			foreach($arr_pages as $post_id => $post_title)
+			{
+				$arr_data["is_page(".$post_id.")"] = $post_title;
+			}
+
+		$arr_data["opt_end_pages"] = "";
+	}
+
+	return $arr_data;
+}
+
 function settings_share()
 {
 	$options_area = __FUNCTION__;
@@ -33,6 +100,13 @@ function settings_share()
 	if(is_array($setting_share_services) && count($setting_share_services) > 0)
 	{
 		$arr_settings['setting_share_visible'] = __("Show these here", 'lang_share');
+
+		$setting_share_visible = get_option('setting_share_visible');
+
+		if(is_array($setting_share_visible) && (in_array('above_content', $setting_share_visible) || in_array('after_post_heading', $setting_share_visible) || in_array('below_content', $setting_share_visible)))
+		{
+			$arr_settings['setting_share_pages'] = __("Only on these pages", 'lang_share');
+		}
 	}
 
 	/*if(is_plugin_active("mf_form/index.php"))
@@ -72,39 +146,6 @@ function setting_share_form_callback()
 	echo show_select(array('data' => $arr_data, 'name' => $setting_key, 'value' => $option, 'suffix' => "<a href='".admin_url("admin.php?page=mf_form/create/index.php")."'><i class='fa fa-lg fa-plus'></i></a>"));
 }
 
-function get_share_options_for_select()
-{
-	$arr_data = array();
-
-	$arr_data["email_link"] = __("E-mail link", 'lang_share');
-	/*if(get_option('setting_share_form') > 0){$arr_data["email_form"] = __("E-mail form", 'lang_share');}*/
-	$arr_data["print"] = __("Print", 'lang_share');
-
-	return $arr_data;
-}
-
-function get_share_services_for_select()
-{
-	return array(
-		'facebook' => "Facebook",
-		'google-plus' => "Google+",
-		'linkedin' => "LinkedIn",
-		'pinterest' => "Pinterest",
-		'reddit' => "Reddit",
-		'twitter' => "Twitter",
-	);
-}
-
-function get_share_place_for_select()
-{
-	return array(
-		'above_content' => __("Above page content", 'lang_share'),
-		'after_post_heading' => __("After post heading", 'lang_share'),
-		'below_content' => __("Below page content", 'lang_share'),
-		'end_of_page' => __("End of page", 'lang_share'),
-	);
-}
-
 function setting_share_options_callback()
 {
 	$setting_key = get_setting_key(__FUNCTION__);
@@ -119,6 +160,14 @@ function setting_share_options_visible_callback()
 	$option = get_option($setting_key);
 
 	echo show_select(array('data' => get_share_place_for_select(), 'name' => $setting_key.'[]', 'value' => $option, 'xtra' => "class='multiselect'", 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='options']"));
+}
+
+function setting_share_pages_callback()
+{
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key);
+
+	echo show_select(array('data' => get_share_pages_for_select(), 'name' => $setting_key.'[]', 'value' => $option, 'xtra' => "class='multiselect'"));
 }
 
 function setting_share_services_callback()
@@ -158,9 +207,7 @@ function setting_share_email_content_callback()
 	$setting_key = get_setting_key(__FUNCTION__);
 	$option = get_option($setting_key);
 
-	echo show_wp_editor(array(
-		'name' => $setting_key,
-		'value' => $option,
+	echo show_wp_editor(array('name' => $setting_key, 'value' => $option,
 		'class' => "hide_media_button hide_tabs",
 		'mini_toolbar' => true,
 		'textarea_rows' => 5,
@@ -296,6 +343,13 @@ function get_share_content($data = array())
 	return $out;
 }
 
+function is_correct_page()
+{
+	$pages = get_option('setting_share_pages');
+
+	return $pages == '' || count($pages) == 0 || is_array($pages) && eval("return (".implode(" || ", $pages).");");
+}
+
 function content_share($html)
 {
 	$option = get_option('setting_share_options_visible');
@@ -319,16 +373,19 @@ function content_share($html)
 
 	if(is_array($option) && count($option) > 0)
 	{
-		$html_addon = get_share_content(array('type' => 'services'));
-
-		if(in_array('above_content', $option))
+		if(is_correct_page())
 		{
-			$html = $html_addon.$html;
-		}
+			$html_addon = get_share_content(array('type' => 'services'));
 
-		if(in_array('below_content', $option))
-		{
-			$html .= $html_addon;
+			if(in_array('above_content', $option))
+			{
+				$html = $html_addon.$html;
+			}
+
+			if(in_array('below_content', $option))
+			{
+				$html .= $html_addon;
+			}
 		}
 	}
 
@@ -350,7 +407,10 @@ function content_meta_share($html, $post)
 
 		if(is_array($option) && count($option) > 0 && in_array('after_post_heading', $option))
 		{
-			$html .= get_share_content(array('type' => 'services', 'url' => get_permalink($post)));
+			if(is_correct_page())
+			{
+				$html .= get_share_content(array('type' => 'services', 'url' => get_permalink($post)));
+			}
 		}
 	}
 
@@ -361,25 +421,19 @@ function footer_share()
 {
 	$option = get_option('setting_share_options_visible');
 
-	if(is_array($option) && count($option) > 0)
+	if(is_array($option) && count($option) > 0 && in_array("end_of_page", $option))
 	{
 		$html_addon = get_share_content(array('type' => 'options'));
 
-		if(in_array("end_of_page", $option))
-		{
-			echo $html_addon;
-		}
+		echo $html_addon;
 	}
 
 	$option = get_option('setting_share_visible');
 
-	if(is_array($option) && count($option) > 0)
+	if(is_array($option) && count($option) > 0 && in_array("end_of_page", $option))
 	{
 		$html_addon = get_share_content(array('type' => 'services'));
 
-		if(in_array("end_of_page", $option))
-		{
-			echo $html_addon;
-		}
+		echo $html_addon;
 	}
 }

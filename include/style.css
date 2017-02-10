@@ -1,6 +1,10 @@
 .mf_share
 {
 	list-style: none;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 	.mf_share li
@@ -8,7 +12,6 @@
 		border: .2em solid #999;
 		border-radius: .2em;
 		display: inline-block;
-		/*font-size: 1.4em;*/
 		text-align: center;
 		white-space: nowrap;
 	}
@@ -37,12 +40,6 @@
 				display: inline-block;
 				padding-left: .5em;
 			}
-
-	/*.mf_share .share_text
-	{
-		padding-left: .6em;
-		padding-right: .6em;
-	}*/
 
 	.mf_share .contact
 	{
