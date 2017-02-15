@@ -5,6 +5,11 @@ function init_share()
 	wp_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css");
 }
 
+function widgets_share()
+{
+	register_widget('widget_share');
+}
+
 function get_share_options_for_select()
 {
 	$arr_data = array();
@@ -224,6 +229,60 @@ function shortcode_share($atts)
 	return get_share_content(array('type' => $type));
 }
 
+function show_share_services($setting_share_services, $url_to_share)
+{
+	$out = "";
+
+	//$out .= "<li class='share_text'>".__("Share", 'lang_share')."</li>";
+
+	if(in_array("facebook", $setting_share_services))
+	{
+		$out .= "<li class='social facebook'><a href='//www.facebook.com/sharer/sharer.php?u=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Facebook'><i class='fa fa-facebook'></i></a></li>";
+	}
+
+	if(in_array("google-plus", $setting_share_services))
+	{
+		$out .= "<li class='social google-plus'><a href='//plus.google.com/share?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Google+'><i class='fa fa-google-plus'></i></a></li>";
+	}
+
+	if(in_array("linkedin", $setting_share_services))
+	{
+		$out .= "<li class='social linkedin'><a href='//www.linkedin.com/shareArticle?url=".$url_to_share."&mini=true' target='_blank' title='".__("Share on", 'lang_share')." LinkedIn'><i class='fa fa-linkedin'></i></a></li>";
+		//&source=".$url_to_share."&title=Jonathan%20Suh&summary=Short%20summary
+	}
+
+	if(in_array("pinterest", $setting_share_services))
+	{
+		$out .= "<li class='social pinterest'><a href='//www.pinterest.com/pin/create/button/?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Pinterest'><i class='fa fa-pinterest'></i></a></li>";
+		//&media=https%3A%2F%2Fjonsuh.com%2Ficon.png&description=Short%20description&hashtags=web,development
+	}
+
+	if(in_array("reddit", $setting_share_services))
+	{
+		$out .= "<li class='social reddit'><a href='//www.reddit.com/submit/?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Reddit'><i class='fa fa-reddit'></i></a></li>";
+	}
+
+	if(in_array("twitter", $setting_share_services))
+	{
+		$setting_share_twitter = get_option('setting_share_twitter');
+
+		$out .= "<li class='social twitter'>
+			<a href='//twitter.com/intent/tweet?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Twitter'>
+				<i class='fa fa-twitter'></i>";
+
+				if($setting_share_twitter != '')
+				{
+					$out .= "<span>".$setting_share_twitter."</span>";
+				}
+
+			$out .= "</a>
+		</li>";
+		//&text=TWEET_TO_SHARE&via=USERNAME_TO_SHARE&hashtags=web,development
+	}
+
+	return $out;
+}
+
 function get_share_content($data = array())
 {
 	if(!isset($data['type'])){	$data['type'] = "";}
@@ -289,52 +348,7 @@ function get_share_content($data = array())
 
 			if(($data['type'] == "" || $data['type'] == "services") && is_array($setting_share_services) && $count_services > 0)
 			{
-				//$out .= "<li class='share_text'>".__("Share", 'lang_share')."</li>";
-
-				if(in_array("facebook", $setting_share_services))
-				{
-					$out .= "<li class='social facebook'><a href='//www.facebook.com/sharer/sharer.php?u=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Facebook'><i class='fa fa-facebook'></i></a></li>";
-				}
-
-				if(in_array("google-plus", $setting_share_services))
-				{
-					$out .= "<li class='social google-plus'><a href='//plus.google.com/share?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Google+'><i class='fa fa-google-plus'></i></a></li>";
-				}
-
-				if(in_array("linkedin", $setting_share_services))
-				{
-					$out .= "<li class='social linkedin'><a href='//www.linkedin.com/shareArticle?url=".$url_to_share."&mini=true' target='_blank' title='".__("Share on", 'lang_share')." LinkedIn'><i class='fa fa-linkedin'></i></a></li>";
-					//&source=".$url_to_share."&title=Jonathan%20Suh&summary=Short%20summary
-				}
-
-				if(in_array("pinterest", $setting_share_services))
-				{
-					$out .= "<li class='social pinterest'><a href='//www.pinterest.com/pin/create/button/?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Pinterest'><i class='fa fa-pinterest'></i></a></li>";
-					//&media=https%3A%2F%2Fjonsuh.com%2Ficon.png&description=Short%20description&hashtags=web,development
-				}
-
-				if(in_array("reddit", $setting_share_services))
-				{
-					$out .= "<li class='social reddit'><a href='//www.reddit.com/submit/?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Reddit'><i class='fa fa-reddit'></i></a></li>";
-				}
-
-				if(in_array("twitter", $setting_share_services))
-				{
-					$setting_share_twitter = get_option('setting_share_twitter');
-
-					$out .= "<li class='social twitter'>
-						<a href='//twitter.com/intent/tweet?url=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Twitter'>
-							<i class='fa fa-twitter'></i>";
-
-							if($setting_share_twitter != '')
-							{
-								$out .= "<span>".$setting_share_twitter."</span>";
-							}
-
-						$out .= "</a>
-					</li>";
-					//&text=TWEET_TO_SHARE&via=USERNAME_TO_SHARE&hashtags=web,development
-				}
+				$out .= show_share_services($setting_share_services, $url_to_share);
 			}
 
 		$out .= "</ul>";

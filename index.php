@@ -3,7 +3,7 @@
 Plugin Name: MF Share
 Plugin URI: https://github.com/frostkom/mf_share
 Description: 
-Version: 2.1.3
+Version: 2.2.1
 Author: Martin Fors
 Author URI: http://frostkom.se
 Text Domain: lang_share
@@ -12,7 +12,10 @@ Domain Path: /lang
 GitHub Plugin URI: frostkom/mf_share
 */
 
+include_once("include/classes.php");
 include_once("include/functions.php");
+
+add_action('widgets_init', 'widgets_share');
 
 if(is_admin())
 {
