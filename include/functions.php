@@ -47,7 +47,7 @@ function get_share_pages_for_select()
 {
 	$arr_pages = array();
 
-	get_post_children(array('output_array' => true), $arr_pages);
+	get_post_children(array(), $arr_pages);
 
 	$arr_data = array();
 
@@ -87,7 +87,6 @@ function settings_share()
 	$setting_share_services = get_option('setting_share_services');
 
 	$arr_settings = array();
-
 	$arr_settings['setting_share_options'] = __("Show these options", 'lang_share');
 
 	if(is_array($setting_share_options) && count($setting_share_options) > 0)
@@ -125,12 +124,7 @@ function settings_share()
 		$arr_settings['setting_share_email_content'] = __("E-mail content", 'lang_share');
 	}
 
-	foreach($arr_settings as $handle => $text)
-	{
-		add_settings_field($handle, $text, $handle."_callback", BASE_OPTIONS_PAGE, $options_area);
-
-		register_setting(BASE_OPTIONS_PAGE, $handle);
-	}
+	show_settings_fields(array('area' => $options_area, 'settings' => $arr_settings));
 }
 
 function settings_share_callback()
