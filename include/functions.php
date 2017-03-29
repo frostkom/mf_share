@@ -43,40 +43,6 @@ function get_share_place_for_select()
 	);
 }
 
-function get_share_pages_for_select()
-{
-	$arr_pages = array();
-
-	get_post_children(array(), $arr_pages);
-
-	$arr_data = array();
-
-	$arr_data["is_404()"] = __("404", 'lang_share');
-	//$arr_data["is_archive()"] = __("Archive", 'lang_share');
-	//$arr_data["is_category()"] = __("Category", 'lang_share');
-	//$arr_data["is_front_page()"] = __("Front Page", 'lang_share');
-	//$arr_data["is_home()"] = __("Home", 'lang_share');
-	$arr_data["is_page()"] = __("Page", 'lang_share');
-	$arr_data['is_singular("post")'] = __("Post", 'lang_share');
-	$arr_data["is_search()"] = __("Search", 'lang_share');
-	//$arr_data["is_single()"] = __("Single", 'lang_share');
-	//$arr_data["is_sticky()"] = __("Sticky", 'lang_share');
-
-	if(count($arr_pages) > 0)
-	{
-		$arr_data["opt_start_pages"] = __("Pages", 'lang_share');
-
-			foreach($arr_pages as $post_id => $post_title)
-			{
-				$arr_data["is_page(".$post_id.")"] = $post_title;
-			}
-
-		$arr_data["opt_end_pages"] = "";
-	}
-
-	return $arr_data;
-}
-
 function settings_share()
 {
 	$options_area = __FUNCTION__;
@@ -166,7 +132,7 @@ function setting_share_pages_callback()
 	$setting_key = get_setting_key(__FUNCTION__);
 	$option = get_option($setting_key);
 
-	echo show_select(array('data' => get_share_pages_for_select(), 'name' => $setting_key.'[]', 'value' => $option, 'xtra' => "class='multiselect'"));
+	echo show_select(array('data' => get_post_types_for_select(), 'name' => $setting_key.'[]', 'value' => $option, 'xtra' => "class='multiselect'"));
 }
 
 function setting_share_services_callback()
