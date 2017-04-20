@@ -164,7 +164,7 @@ function setting_share_email_subject_callback()
 	$setting_key = get_setting_key(__FUNCTION__);
 	$option = get_option($setting_key);
 
-	echo show_textfield(array('name' => $setting_key, 'value' => $option, 'xtra' => "class='widefat'"));
+	echo show_textfield(array('name' => $setting_key, 'value' => $option));
 }
 
 function setting_share_email_content_callback()
