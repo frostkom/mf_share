@@ -50,8 +50,8 @@ class widget_share extends WP_Widget
 		);
 		$instance = wp_parse_args((array)$instance, $defaults);
 
-		echo "<p>"
-			.show_select(array('data' => get_share_services_for_select(), 'name' => $this->get_field_name('share_services')."[]", 'value' => $instance['share_services'], 'xtra' => "class='widefat'"))
-		."</p>";
+		echo "<div class='mf_form'>"
+			.show_select(array('data' => get_share_services_for_select(), 'name' => $this->get_field_name('share_services')."[]", 'value' => $instance['share_services']))
+		."</div>";
 	}
 }
