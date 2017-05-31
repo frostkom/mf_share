@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 11:01+0100\n"
+"POT-Creation-Date: 2017-05-31 11:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -20,7 +20,8 @@ msgid "Display Social Buttons"
 msgstr "Visa sociala knappar"
 
 #: ../include/classes.php:14
-#: ../include/functions.php:140
+#: ../include/functions.php:100
+#: ../include/functions.php:200
 msgid "Share"
 msgstr "Dela"
 
@@ -48,72 +49,60 @@ msgstr "Under innehåll"
 msgid "In Footer"
 msgstr "I sidfoten"
 
-#: ../include/functions.php:54
-msgid "404"
-msgstr ""
-
-#: ../include/functions.php:59
-msgid "Page"
-msgstr "Sida"
-
-#: ../include/functions.php:60
-msgid "Post"
-msgstr "Inlägg"
-
-#: ../include/functions.php:61
-msgid "Search"
-msgstr "Sök"
-
-#: ../include/functions.php:67
-msgid "Pages"
-msgstr "Sidor"
-
-#: ../include/functions.php:91
+#: ../include/functions.php:56
 msgid "Show these options"
 msgstr "Visa dessa val"
 
-#: ../include/functions.php:95
-#: ../include/functions.php:107
+#: ../include/functions.php:60
+#: ../include/functions.php:72
 msgid "Show these here"
 msgstr "Visa dessa här"
 
-#: ../include/functions.php:98
+#: ../include/functions.php:63
+#: ../include/functions.php:230
+#: ../include/functions.php:235
 #: ../include/functions.php:240
-#: ../include/functions.php:245
-#: ../include/functions.php:250
-#: ../include/functions.php:256
-#: ../include/functions.php:262
-#: ../include/functions.php:270
+#: ../include/functions.php:246
+#: ../include/functions.php:252
+#: ../include/functions.php:260
 msgid "Share on"
 msgstr "Dela på"
 
-#: ../include/functions.php:102
+#: ../include/functions.php:67
 msgid "Twitter handle"
 msgstr "Twitternamn"
 
-#: ../include/functions.php:113
+#: ../include/functions.php:78
 msgid "Only on these pages"
 msgstr "Endast på dessa sidor"
 
-#: ../include/functions.php:124
+#: ../include/functions.php:89
 msgid "E-mail subject"
 msgstr "Ämne till e-post"
 
-#: ../include/functions.php:125
+#: ../include/functions.php:90
 msgid "E-mail content"
 msgstr "Innehåll i e-post"
 
-#: ../include/functions.php:167
-#: ../include/functions.php:199
+#: ../include/functions.php:127
+#: ../include/functions.php:159
 msgid "Can also be displayed by adding the shortcode"
 msgstr "Kan också visas genom att lägga in kortkoden"
 
-#: ../include/functions.php:328
-#: ../include/functions.php:337
+#: ../include/functions.php:203
+msgid "No"
+msgstr "Nej"
+
+#: ../include/functions.php:204
+msgid "Yes"
+msgstr "Ja"
+
+#: ../include/functions.php:318
+#: ../include/functions.php:327
 msgid "Recommend this page to a friend"
 msgstr "Tipsa en vän om denna sida"
 
-#: ../include/functions.php:345
+#: ../include/functions.php:335
 msgid "Print this page"
 msgstr "Skriv ut denna sida"
 
