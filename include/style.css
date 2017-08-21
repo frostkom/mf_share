@@ -18,6 +18,7 @@
 
 		.mf_share li + li
 		{
+			margin-top: 0;
 			margin-left: .5em;
 		}
 
