@@ -9,16 +9,18 @@ class widget_share extends WP_Widget
 			'description' => __("Display Social Buttons", 'lang_share')
 		);
 
-		$control_ops = array('id_base' => 'share-widget');
+		$this->arr_default = array(
+			'share_services' => array(),
+		);
 
-		parent::__construct('share-widget', __("Share", 'lang_share'), $widget_ops, $control_ops);
+		parent::__construct('share-widget', __("Share", 'lang_share'), $widget_ops);
 	}
 
 	function widget($args, $instance)
 	{
-		global $wpdb;
-
 		extract($args);
+
+		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
 		if(count($instance['share_services']) > 0)
 		{
@@ -36,6 +38,8 @@ class widget_share extends WP_Widget
 	{
 		$instance = $old_instance;
 
+		$new_instance = wp_parse_args((array)$new_instance, $this->arr_default);
+
 		$instance['share_services'] = $new_instance['share_services'];
 
 		return $instance;
@@ -43,12 +47,7 @@ class widget_share extends WP_Widget
 
 	function form($instance)
 	{
-		global $wpdb;
-
-		$defaults = array(
-			'share_services' => array(),
-		);
-		$instance = wp_parse_args((array)$instance, $defaults);
+		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
 		echo "<div class='mf_form'>"
 			.show_select(array('data' => get_share_services_for_select(), 'name' => $this->get_field_name('share_services')."[]", 'value' => $instance['share_services']))
