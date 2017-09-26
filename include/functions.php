@@ -61,6 +61,7 @@ function settings_share()
 	if(is_array($setting_share_options) && count($setting_share_options) > 0)
 	{
 		$arr_settings['setting_share_options_visible'] = __("Show these here", 'lang_share');
+		$arr_settings['setting_share_options_titles'] = __("Show titles", 'lang_share');
 	}
 
 	$arr_settings['setting_share_services'] = __("Share on", 'lang_share');
@@ -128,6 +129,14 @@ function setting_share_options_visible_callback()
 	$option = get_option($setting_key);
 
 	echo show_select(array('data' => get_share_place_for_select(), 'name' => $setting_key.'[]', 'value' => $option, 'xtra' => "class='multiselect'", 'description' => __("Can also be displayed by adding the shortcode", 'lang_share')." [mf_share type='options']"));
+}
+
+function setting_share_options_titles_callback()
+{
+	$setting_key = get_setting_key(__FUNCTION__);
+	$option = get_option($setting_key, 'no');
+
+	echo show_select(array('data' => get_yes_no_for_select(), 'name' => $setting_key, 'value' => $option));
 }
 
 function setting_share_pages_callback()
@@ -226,8 +235,6 @@ function show_share_services($setting_share_services, $url_to_share)
 {
 	$out = "";
 
-	//$out .= "<li class='share_text'>".__("Share", 'lang_share')."</li>";
-
 	if(in_array("facebook", $setting_share_services))
 	{
 		$out .= "<li class='social facebook'><a href='//www.facebook.com/sharer/sharer.php?u=".$url_to_share."' target='_blank' title='".__("Share on", 'lang_share')." Facebook'><i class='fa fa-facebook'></i></a></li>";
@@ -297,12 +304,12 @@ function get_share_content($data = array())
 
 			if(($data['type'] == "" || $data['type'] == "options") && is_array($setting_share_options) && $count_options > 0)
 			{
+				$setting_share_options_titles = get_option('setting_share_options_titles');
+
 				if(in_array("email_link", $setting_share_options) || in_array("email_form", $setting_share_options))
 				{
 					$setting_share_email_subject = get_option('setting_share_email_subject');
 					$setting_share_email_content = get_option('setting_share_email_content');
-
-					//$out .= "<li class='share_text'>".__("Recommend to a friend", 'lang_share')."</li>";
 
 					if(in_array("email_link", $setting_share_options))
 					{
@@ -318,7 +325,7 @@ function get_share_content($data = array())
 							$link_extra .= ($link_extra != '' ? "&" : "?")."body=".str_replace("[url]", $url_to_share, $setting_share_email_content);
 						}
 
-						$out .= "<li class='contact email_link'><a href='mailto:".$link_extra."' title='".__("Recommend this page to a friend", 'lang_share')."'><i class='fa fa-envelope'></i></a></li>";
+						$out .= "<li class='contact email_link'><a href='mailto:".$link_extra."' title='".__("Recommend this page to a friend", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Recommend", 'lang_share')."</span>" : "")."<i class='fa fa-envelope'></i></a></li>";
 					}
 
 					if(in_array("email_form", $setting_share_options))
@@ -327,15 +334,14 @@ function get_share_content($data = array())
 
 						if($form_url != '')
 						{
-							$out .= "<li class='contact email_form'><a href='".$form_url."' title='".__("Recommend this page to a friend", 'lang_share')."'><i class='fa fa-envelope'></i></a></li>";
+							$out .= "<li class='contact email_form'><a href='".$form_url."' title='".__("Recommend this page to a friend", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Recommend", 'lang_share')."</span>" : "")."<i class='fa fa-envelope'></i></a></li>";
 						}
 					}
 				}
 
 				if(in_array("print", $setting_share_options))
 				{
-					//$out .= "<li class='share_text'>".__("Print", 'lang_share')."</li>";
-					$out .= "<li class='contact print'><a href='#' onclick='window.print()' title='".__("Print this page", 'lang_share')."'><i class='fa fa-print'></i></a></li>";
+					$out .= "<li class='contact print'><a href='#' onclick='window.print()' title='".__("Print this page", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Print", 'lang_share')."</span>" : "")."<i class='fa fa-print'></i></a></li>";
 				}
 			}
 

@@ -39,8 +39,17 @@
 			.mf_share li a span
 			{
 				display: inline-block;
-				padding-left: .5em;
 			}
+
+				.mf_share li a span:first-child
+				{
+					padding-right: .5em;
+				}
+
+				.mf_share li a span:last-child
+				{
+					padding-left: .5em;
+				}
 
 	.mf_share .contact
 	{
