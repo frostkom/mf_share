@@ -40,7 +40,7 @@ class widget_share extends WP_Widget
 
 		$new_instance = wp_parse_args((array)$new_instance, $this->arr_default);
 
-		$instance['share_services'] = $new_instance['share_services'];
+		$instance['share_services'] = is_array($new_instance['share_services']) ? $new_instance['share_services'] : array();
 
 		return $instance;
 	}
