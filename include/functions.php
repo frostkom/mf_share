@@ -1,13 +1,5 @@
 <?php
 
-function init_share()
-{
-	if(!is_admin())
-	{
-		mf_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css", get_plugin_version(__FILE__));
-	}
-}
-
 function widgets_share()
 {
 	register_widget('widget_share');

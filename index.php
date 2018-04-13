@@ -17,7 +17,8 @@ GitHub Plugin URI: frostkom/mf_share
 include_once("include/classes.php");
 include_once("include/functions.php");
 
-add_action('init', 'init_share');
+$obj_share = new mf_share();
+
 add_action('widgets_init', 'widgets_share');
 
 if(is_admin())
@@ -32,6 +33,7 @@ if(is_admin())
 
 else
 {
+	add_action('wp_head', array($obj_share, 'wp_head'), 0);
 	add_action('wp_footer', 'footer_share');
 
 	add_filter('the_content', 'content_share');

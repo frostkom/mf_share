@@ -1,5 +1,18 @@
 <?php
 
+class mf_share
+{
+	function __construct()
+	{
+
+	}
+
+	function wp_head()
+	{
+		mf_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css", get_plugin_version(__FILE__));
+	}
+}
+
 class widget_share extends WP_Widget
 {
 	function __construct()
