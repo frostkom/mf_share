@@ -200,14 +200,13 @@ function get_shortcode_output_share($out)
 {
 	/*if(has_share())
 	{*/
-		$out .= "<h3>".__("Share", 'lang_share')."</h3>";
-
 		$arr_data = array(
 			'' => __("No", 'lang_share'),
 			'yes' => __("Yes", 'lang_share')
 		);
 
-		$out .= show_select(array('data' => $arr_data, 'xtra' => "rel='mf_share type=services'"));
+		$out .= "<h3>".__("Share", 'lang_share')."</h3>"
+		.show_select(array('data' => $arr_data, 'xtra' => "rel='mf_share type=services'"));
 	//}
 
 	return $out;
