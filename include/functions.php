@@ -355,28 +355,28 @@ function is_correct_page()
 
 function content_share($html)
 {
-	$option = get_option('setting_share_options_visible');
-
-	if(is_array($option) && count($option) > 0)
+	if(is_correct_page())
 	{
-		$html_addon = get_share_content(array('type' => 'options'));
+		$option = get_option('setting_share_options_visible');
 
-		if(in_array('above_content', $option))
+		if(is_array($option) && count($option) > 0)
 		{
-			$html = $html_addon.$html;
+			$html_addon = get_share_content(array('type' => 'options'));
+
+			if(in_array('above_content', $option))
+			{
+				$html = $html_addon.$html;
+			}
+
+			if(in_array('below_content', $option))
+			{
+				$html .= $html_addon;
+			}
 		}
 
-		if(in_array('below_content', $option))
-		{
-			$html .= $html_addon;
-		}
-	}
+		$option = get_option('setting_share_visible');
 
-	$option = get_option('setting_share_visible');
-
-	if(is_array($option) && count($option) > 0)
-	{
-		if(is_correct_page())
+		if(is_array($option) && count($option) > 0)
 		{
 			$html_addon = get_share_content(array('type' => 'services'));
 
@@ -397,7 +397,7 @@ function content_share($html)
 
 function content_meta_share($html, $post)
 {
-	if($post->post_type == 'post')
+	if($post->post_type == 'post' && is_correct_page())
 	{
 		$option = get_option('setting_share_options_visible');
 
@@ -410,10 +410,7 @@ function content_meta_share($html, $post)
 
 		if(is_array($option) && count($option) > 0 && in_array('after_post_heading', $option))
 		{
-			if(is_correct_page())
-			{
-				$html .= get_share_content(array('type' => 'services', 'url' => get_permalink($post)));
-			}
+			$html .= get_share_content(array('type' => 'services', 'url' => get_permalink($post)));
 		}
 	}
 
