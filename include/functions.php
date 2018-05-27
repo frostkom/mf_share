@@ -395,28 +395,6 @@ function content_share($html)
 	return $html;
 }
 
-function content_meta_share($html, $post)
-{
-	if($post->post_type == 'post' && is_correct_page())
-	{
-		$option = get_option('setting_share_options_visible');
-
-		if(is_array($option) && count($option) > 0 && in_array('after_post_heading', $option))
-		{
-			$html .= get_share_content(array('type' => 'options', 'url' => get_permalink($post)));
-		}
-
-		$option = get_option('setting_share_visible');
-
-		if(is_array($option) && count($option) > 0 && in_array('after_post_heading', $option))
-		{
-			$html .= get_share_content(array('type' => 'services', 'url' => get_permalink($post)));
-		}
-	}
-
-    return $html;
-}
-
 function footer_share()
 {
 	$option = get_option('setting_share_options_visible');

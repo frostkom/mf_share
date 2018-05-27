@@ -11,6 +11,28 @@ class mf_share
 	{
 		mf_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css", get_plugin_version(__FILE__));
 	}
+
+	function content_meta($html, $post)
+	{
+		if(is_correct_page()) //$post->post_type == 'post' && 
+		{
+			$option = get_option('setting_share_options_visible');
+
+			if(is_array($option) && count($option) > 0 && in_array('after_post_heading', $option))
+			{
+				$html .= get_share_content(array('type' => 'options', 'url' => get_permalink($post)));
+			}
+
+			$option = get_option('setting_share_visible');
+
+			if(is_array($option) && count($option) > 0 && in_array('after_post_heading', $option))
+			{
+				$html .= get_share_content(array('type' => 'services', 'url' => get_permalink($post)));
+			}
+		}
+
+		return $html;
+	}
 }
 
 class widget_share extends WP_Widget
