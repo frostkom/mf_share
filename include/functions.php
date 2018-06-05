@@ -9,9 +9,9 @@ function get_share_options_for_select()
 {
 	$arr_data = array();
 
-	$arr_data["email_link"] = __("E-mail link", 'lang_share');
-	/*if(get_option('setting_share_form') > 0){$arr_data["email_form"] = __("E-mail form", 'lang_share');}*/
-	$arr_data["print"] = __("Print", 'lang_share');
+	$arr_data['email_link'] = __("E-mail link", 'lang_share');
+	/*if(get_option('setting_share_form') > 0){$arr_data['email_form'] = __("E-mail form", 'lang_share');}*/
+	$arr_data['print'] = __("Print", 'lang_share');
 
 	return $arr_data;
 }
