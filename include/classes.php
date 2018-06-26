@@ -7,14 +7,45 @@ class mf_share
 
 	}
 
+	function language_attributes($html)
+	{
+		if(is_correct_page())
+		{
+			$html .= " xmlns:og='http://opengraphprotocol.org/schema/' xmlns:fb='http://www.facebook.com/2008/fbml'";
+		}
+
+		return $html;
+	}
+
 	function wp_head()
 	{
-		mf_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css", get_plugin_version(__FILE__));
+		global $post;
+
+		if(is_correct_page())
+		{
+			mf_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css", get_plugin_version(__FILE__));
+
+			echo "<meta property='og:site_name' content='".get_bloginfo('name')."'>
+			<meta property='og:title' content='".$post->post_title."'>
+			<meta property='og:url' content='".get_permalink($post)."'>";
+
+			if(has_post_thumbnail($post->ID))
+			{
+				echo "<meta property='og:image' content='".get_the_post_thumbnail_url($post->ID, 'thumbnail')."'>";
+			}
+
+			if(isset($post->post_excerpt) && $post->post_excerpt != '')
+			{
+				echo "<meta property='og:description' content='".$post->post_excerpt."'>";
+			}
+
+			//<meta property="og:type" content="article" />
+		}
 	}
 
 	function content_meta($html, $post)
 	{
-		if(is_correct_page()) //$post->post_type == 'post' && 
+		if(is_correct_page())
 		{
 			$option = get_option('setting_share_options_visible');
 

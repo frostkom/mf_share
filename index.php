@@ -3,7 +3,7 @@
 Plugin Name: MF Share
 Plugin URI: https://github.com/frostkom/mf_share
 Description: 
-Version: 2.4.4
+Version: 2.4.6
 Licence: GPLv2 or later
 Author: Martin Fors
 Author URI: http://frostkom.se
@@ -33,6 +33,8 @@ if(is_admin())
 
 else
 {
+	add_filter('language_attributes', array($obj_share, 'language_attributes'));
+
 	add_action('wp_head', array($obj_share, 'wp_head'), 0);
 	add_action('wp_footer', 'footer_share');
 
