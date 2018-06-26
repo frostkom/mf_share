@@ -3,7 +3,7 @@
 Plugin Name: MF Share
 Plugin URI: https://github.com/frostkom/mf_share
 Description: 
-Version: 2.4.6
+Version: 2.4.8
 Licence: GPLv2 or later
 Author: Martin Fors
 Author URI: http://frostkom.se
@@ -18,8 +18,6 @@ include_once("include/classes.php");
 include_once("include/functions.php");
 
 $obj_share = new mf_share();
-
-add_action('widgets_init', 'widgets_share');
 
 if(is_admin())
 {
@@ -43,6 +41,8 @@ else
 
 	add_shortcode('mf_share', 'shortcode_share');
 }
+
+add_action('widgets_init', 'widgets_share');
 
 load_plugin_textdomain('lang_share', false, dirname(plugin_basename(__FILE__)).'/lang/');
 

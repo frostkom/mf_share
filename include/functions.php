@@ -82,8 +82,8 @@ function settings_share()
 
 	if(is_array($setting_share_options) && in_array("email_link", $setting_share_options))
 	{
-		$arr_settings['setting_share_email_subject'] = __("E-mail subject", 'lang_share');
-		$arr_settings['setting_share_email_content'] = __("E-mail content", 'lang_share');
+		$arr_settings['setting_share_email_subject'] = __("E-mail Subject", 'lang_share');
+		$arr_settings['setting_share_email_content'] = __("E-mail Content", 'lang_share');
 	}
 
 	show_settings_fields(array('area' => $options_area, 'settings' => $arr_settings));
@@ -180,6 +180,7 @@ function setting_share_email_content_callback()
 		'mini_toolbar' => true,
 		'textarea_rows' => 5,
 		//'statusbar' => false,
+		'description' => sprintf(__("Use %s to automatically add the current page URL into the text", 'lang_share'), "[url]"),
 	));
 }
 

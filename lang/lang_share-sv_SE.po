@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-26 14:38+0100\n"
+"POT-Creation-Date: 2018-06-26 14:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -15,104 +15,109 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../include/classes.php:9
+#: ../include/classes.php:75
 msgid "Display Social Buttons"
 msgstr "Visa sociala knappar"
 
-#: ../include/classes.php:16
-#: ../include/functions.php:104
-#: ../include/functions.php:212
+#: ../include/classes.php:82
+#: ../include/functions.php:96
+#: ../include/functions.php:209
 msgid "Share"
 msgstr "Dela"
 
-#: ../include/functions.php:20
+#: ../include/functions.php:12
 msgid "E-mail link"
 msgstr "E-postlänk"
 
-#: ../include/functions.php:22
-#: ../include/functions.php:349
+#: ../include/functions.php:14
+#: ../include/functions.php:335
 msgid "Print"
 msgstr "Skriv ut"
 
-#: ../include/functions.php:42
+#: ../include/functions.php:34
 msgid "Above Content"
 msgstr "Ovanför innehåll"
 
-#: ../include/functions.php:43
+#: ../include/functions.php:35
 msgid "After Heading"
 msgstr "Efter rubrik"
 
-#: ../include/functions.php:44
+#: ../include/functions.php:36
 msgid "Below Content"
 msgstr "Under innehåll"
 
-#: ../include/functions.php:45
+#: ../include/functions.php:37
 msgid "In Footer"
 msgstr "I sidfoten"
 
-#: ../include/functions.php:59
+#: ../include/functions.php:51
 msgid "Show these options"
 msgstr "Visa dessa val"
 
-#: ../include/functions.php:63
-#: ../include/functions.php:76
+#: ../include/functions.php:55
+#: ../include/functions.php:68
 msgid "Show these here"
 msgstr "Visa dessa här"
 
-#: ../include/functions.php:64
+#: ../include/functions.php:56
 msgid "Show titles"
 msgstr "Visa rubriker"
 
-#: ../include/functions.php:67
-#: ../include/functions.php:242
+#: ../include/functions.php:59
+#: ../include/functions.php:231
+#: ../include/functions.php:236
+#: ../include/functions.php:241
 #: ../include/functions.php:247
-#: ../include/functions.php:252
-#: ../include/functions.php:258
-#: ../include/functions.php:264
-#: ../include/functions.php:272
+#: ../include/functions.php:253
+#: ../include/functions.php:261
 msgid "Share on"
 msgstr "Dela på"
 
-#: ../include/functions.php:71
+#: ../include/functions.php:63
 msgid "Twitter handle"
 msgstr "Twitternamn"
 
-#: ../include/functions.php:82
+#: ../include/functions.php:74
 msgid "Only on these pages"
 msgstr "Endast på dessa sidor"
 
-#: ../include/functions.php:93
-msgid "E-mail subject"
+#: ../include/functions.php:85
+msgid "E-mail Subject"
 msgstr "Ämne till e-post"
 
-#: ../include/functions.php:94
-msgid "E-mail content"
+#: ../include/functions.php:86
+msgid "E-mail Content"
 msgstr "Innehåll i e-post"
 
-#: ../include/functions.php:131
-#: ../include/functions.php:171
+#: ../include/functions.php:122
+#: ../include/functions.php:162
 msgid "Can also be displayed by adding the shortcode"
 msgstr "Kan också visas genom att lägga in kortkoden"
 
-#: ../include/functions.php:215
+#: ../include/functions.php:183
+#, php-format
+msgid "Use %s to automatically add the current page URL into the text"
+msgstr "Använd %s för att automatiskt lägga till nuvarande sid-URL i texten"
+
+#: ../include/functions.php:205
 msgid "No"
 msgstr "Nej"
 
-#: ../include/functions.php:216
+#: ../include/functions.php:206
 msgid "Yes"
 msgstr "Ja"
 
-#: ../include/functions.php:332
-#: ../include/functions.php:341
+#: ../include/functions.php:319
+#: ../include/functions.php:328
 msgid "Recommend this page to a friend"
 msgstr "Tipsa en vän om denna sida"
 
-#: ../include/functions.php:332
-#: ../include/functions.php:341
+#: ../include/functions.php:319
+#: ../include/functions.php:328
 msgid "Recommend"
 msgstr "Tipsa"
 
-#: ../include/functions.php:349
+#: ../include/functions.php:335
 msgid "Print this page"
 msgstr "Skriv ut denna sida"
 
