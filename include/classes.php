@@ -25,21 +25,25 @@ class mf_share
 		{
 			mf_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css", get_plugin_version(__FILE__));
 
-			echo "<meta property='og:site_name' content='".get_bloginfo('name')."'>
-			<meta property='og:title' content='".$post->post_title."'>
-			<meta property='og:url' content='".get_permalink($post)."'>";
+			echo "<meta property='og:site_name' content='".get_bloginfo('name')."'>";
 
-			if(has_post_thumbnail($post->ID))
+			if(isset($post->ID))
 			{
-				echo "<meta property='og:image' content='".get_the_post_thumbnail_url($post->ID, 'thumbnail')."'>";
-			}
+				echo "<meta property='og:title' content='".$post->post_title."'>
+				<meta property='og:url' content='".get_permalink($post)."'>";
 
-			if(isset($post->post_excerpt) && $post->post_excerpt != '')
-			{
-				echo "<meta property='og:description' content='".$post->post_excerpt."'>";
-			}
+				if(has_post_thumbnail($post->ID))
+				{
+					echo "<meta property='og:image' content='".get_the_post_thumbnail_url($post->ID, 'thumbnail')."'>";
+				}
 
-			//<meta property="og:type" content="article" />
+				if(isset($post->post_excerpt) && $post->post_excerpt != '')
+				{
+					echo "<meta property='og:description' content='".$post->post_excerpt."'>";
+				}
+
+				//echo "<meta property='og:type' content='article'>";
+			}
 		}
 	}
 
