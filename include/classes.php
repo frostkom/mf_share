@@ -47,7 +47,7 @@ class mf_share
 		}
 	}
 
-	function content_meta($html, $post)
+	function the_content_meta($html, $post)
 	{
 		if(is_correct_page())
 		{
