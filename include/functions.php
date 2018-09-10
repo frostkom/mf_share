@@ -178,7 +178,7 @@ function setting_share_email_content_callback()
 	echo show_wp_editor(array('name' => $setting_key, 'value' => $option,
 		'class' => "hide_media_button hide_tabs",
 		'mini_toolbar' => true,
-		'textarea_rows' => 5,
+		'editor_height' => 100,
 		//'statusbar' => false,
 		'description' => sprintf(__("Use %s to automatically add the current page URL into the text", 'lang_share'), "[url]"),
 	));
