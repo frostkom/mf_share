@@ -103,7 +103,7 @@ function setting_share_form_callback()
 
 	$obj_form = new mf_form();
 
-	echo show_select(array('data' => $obj_form->get_for_select(), 'name' => $setting_key, 'value' => $option, 'suffix' => "<a href='".admin_url("admin.php?page=mf_form/create/index.php")."'><i class='fa fa-plus fa-lg'></i></a>"));
+	echo show_select(array('data' => $obj_form->get_for_select(), 'name' => $setting_key, 'value' => $option, 'suffix' => "<a href='".admin_url("admin.php?page=mf_form/create/index.php")."'><i class='fa fa-plus-circle fa-lg'></i></a>"));
 }
 
 function setting_share_options_callback()
@@ -316,7 +316,7 @@ function get_share_content($data = array())
 							$link_extra .= ($link_extra != '' ? "&" : "?")."body=".str_replace("[url]", $url_to_share, $setting_share_email_content);
 						}
 
-						$out .= "<li class='contact email_link'><a href='mailto:".$link_extra."' title='".__("Recommend this page to a friend", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Recommend", 'lang_share')."</span>" : "")."<i class='far fa-envelope'></i></a></li>";
+						$out .= "<li class='contact email_link'><a href='mailto:".$link_extra."' title='".__("Recommend this page to a friend", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Recommend", 'lang_share')."</span>" : "")."<i class='fa fa-envelope'></i></a></li>";
 					}
 
 					if(in_array("email_form", $setting_share_options))
@@ -325,7 +325,7 @@ function get_share_content($data = array())
 
 						if($form_url != '')
 						{
-							$out .= "<li class='contact email_form'><a href='".$form_url."' title='".__("Recommend this page to a friend", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Recommend", 'lang_share')."</span>" : "")."<i class='far fa-envelope'></i></a></li>";
+							$out .= "<li class='contact email_form'><a href='".$form_url."' title='".__("Recommend this page to a friend", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Recommend", 'lang_share')."</span>" : "")."<i class='fa fa-envelope'></i></a></li>";
 						}
 					}
 				}
