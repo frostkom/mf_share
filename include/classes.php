@@ -234,7 +234,7 @@ class mf_share
 
 		$obj_form = new mf_form();
 
-		echo show_select(array('data' => $obj_form->get_for_select(), 'name' => $setting_key, 'value' => $option, 'suffix' => "<a href='".admin_url("admin.php?page=mf_form/create/index.php")."'><i class='fa fa-plus-circle fa-lg'></i></a>"));
+		echo show_select(array('data' => $obj_form->get_for_select(), 'name' => $setting_key, 'value' => $option, 'suffix' => $obj_form->get_option_form_suffix(array('value' => $option))));
 	}*/
 
 	function setting_share_options_callback()
