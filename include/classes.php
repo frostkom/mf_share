@@ -123,7 +123,7 @@ class mf_share
 
 		if(in_array("facebook", $setting_share_services))
 		{
-			$out .= "<li class='social facebook'><a href='//www.facebook.com/sharer/sharer.php?u=".$url_to_share."' title='".__("Share on", 'lang_share')." Facebook'><i class='fab fa-facebook-f'></i></a></li>";
+			$out .= "<li class='social facebook'><a href='//www.facebook.com/sharer/sharer.php?u=".$url_to_share."' title='".__("Share on", 'lang_share')." Facebook'><i class='fab fa-facebook'></i></a></li>";
 		}
 
 		if(in_array("google-plus", $setting_share_services))
