@@ -356,13 +356,13 @@ class mf_share
 
 	function wp_head()
 	{
-		global $post;
+		//global $post;
 
 		if($this->is_correct_page())
 		{
 			mf_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css", get_plugin_version(__FILE__));
 
-			echo "<meta property='og:site_name' content='".get_bloginfo('name')."'>";
+			/*echo "<meta property='og:site_name' content='".get_bloginfo('name')."'>";
 
 			if(isset($post->ID))
 			{
@@ -380,7 +380,7 @@ class mf_share
 				}
 
 				//echo "<meta property='og:type' content='article'>";
-			}
+			}*/
 		}
 	}
 
