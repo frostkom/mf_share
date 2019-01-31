@@ -16,7 +16,6 @@ class mf_share
 		$arr_data = array();
 
 		$arr_data['email_link'] = __("E-mail link", 'lang_share');
-		/*if(get_option('setting_share_form') > 0){$arr_data['email_form'] = __("E-mail form", 'lang_share');}*/
 		$arr_data['print'] = __("Print", 'lang_share');
 
 		return $arr_data;
@@ -87,16 +86,6 @@ class mf_share
 							}
 
 							$out .= "<li class='contact email_link'><a href='mailto:".$link_extra."' title='".__("Recommend this page to a friend", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Recommend", 'lang_share')."</span>" : "")."<i class='fa fa-envelope'></i></a></li>";
-						}
-
-						if(in_array("email_form", $setting_share_options))
-						{
-							$form_url = get_form_url(get_option('setting_share_form'));
-
-							if($form_url != '')
-							{
-								$out .= "<li class='contact email_form'><a href='".$form_url."' title='".__("Recommend this page to a friend", 'lang_share')."'>".($setting_share_options_titles == 'yes' ? "<span>".__("Recommend", 'lang_share')."</span>" : "")."<i class='fa fa-envelope'></i></a></li>";
-							}
 						}
 					}
 
@@ -206,11 +195,6 @@ class mf_share
 			}
 		}
 
-		/*if(is_plugin_active("mf_form/index.php"))
-		{
-			$arr_settings['setting_share_form'] = __("Form for sharing", 'lang_share');
-		}*/
-
 		if(is_array($setting_share_options) && in_array("email_link", $setting_share_options))
 		{
 			$arr_settings['setting_share_email_subject'] = __("E-mail Subject", 'lang_share');
@@ -226,16 +210,6 @@ class mf_share
 
 		echo settings_header($setting_key, __("Share", 'lang_share'));
 	}
-
-	/*function setting_share_form_callback()
-	{
-		$setting_key = get_setting_key(__FUNCTION__);
-		$option = get_option($setting_key);
-
-		$obj_form = new mf_form();
-
-		echo show_select(array('data' => $obj_form->get_for_select(), 'name' => $setting_key, 'value' => $option, 'suffix' => $obj_form->get_option_form_suffix(array('value' => $option))));
-	}*/
 
 	function setting_share_options_callback()
 	{

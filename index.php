@@ -3,7 +3,7 @@
 Plugin Name: MF Share
 Plugin URI: https://github.com/frostkom/mf_share
 Description: 
-Version: 2.5.4
+Version: 2.5.5
 Licence: GPLv2 or later
 Author: Martin Fors
 Author URI: https://frostkom.se
@@ -18,8 +18,11 @@ include_once("include/classes.php");
 
 $obj_share = new mf_share();
 
+add_action('cron_base', 'activate_share', mt_rand(1, 10));
+
 if(is_admin())
 {
+	register_activation_hook(__FILE__, 'activate_share');
 	register_uninstall_hook(__FILE__, 'uninstall_share');
 
 	add_action('admin_init', array($obj_share, 'settings_share'));
@@ -44,6 +47,13 @@ else
 add_action('widgets_init', array($obj_share, 'widgets_init'));
 
 load_plugin_textdomain('lang_share', false, dirname(plugin_basename(__FILE__)).'/lang/');
+
+function activate_share()
+{
+	mf_uninstall_plugin(array(
+		'options' => array('setting_share_form'),
+	));
+}
 
 function uninstall_share()
 {
