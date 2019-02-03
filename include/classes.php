@@ -24,12 +24,11 @@ class mf_share
 	function get_share_services_for_select()
 	{
 		return array(
-			'facebook' => "Facebook",
-			'google-plus' => "Google+",
-			'linkedin' => "LinkedIn",
-			'pinterest' => "Pinterest",
-			'reddit' => "Reddit",
-			'twitter' => "Twitter",
+			'facebook' => __("Facebook", 'mf_share'),
+			'linkedin' => __("LinkedIn", 'mf_share'),
+			'pinterest' => __("Pinterest", 'mf_share'),
+			'reddit' => __("Reddit", 'mf_share'),
+			'twitter' => __("Twitter", 'mf_share'),
 		);
 	}
 
@@ -110,34 +109,29 @@ class mf_share
 	{
 		$out = "";
 
-		if(in_array("facebook", $setting_share_services))
+		if(in_array('facebook', $setting_share_services))
 		{
 			$out .= "<li class='social facebook'><a href='//www.facebook.com/sharer/sharer.php?u=".$url_to_share."' title='".__("Share on", 'lang_share')." Facebook'><i class='fab fa-facebook'></i></a></li>";
 		}
 
-		if(in_array("google-plus", $setting_share_services))
-		{
-			$out .= "<li class='social google-plus'><a href='//plus.google.com/share?url=".$url_to_share."' title='".__("Share on", 'lang_share')." Google+'><i class='fab fa-google-plus-g'></i></a></li>";
-		}
-
-		if(in_array("linkedin", $setting_share_services))
+		if(in_array('linkedin', $setting_share_services))
 		{
 			$out .= "<li class='social linkedin'><a href='//www.linkedin.com/shareArticle?url=".$url_to_share."&mini=true' title='".__("Share on", 'lang_share')." LinkedIn'><i class='fab fa-linkedin-in'></i></a></li>";
 			//&source=".$url_to_share."&title=Jonathan%20Suh&summary=Short%20summary
 		}
 
-		if(in_array("pinterest", $setting_share_services))
+		if(in_array('pinterest', $setting_share_services))
 		{
 			$out .= "<li class='social pinterest'><a href='//www.pinterest.com/pin/create/button/?url=".$url_to_share."' title='".__("Share on", 'lang_share')." Pinterest'><i class='fab fa-pinterest'></i></a></li>";
 			//&media=https%3A%2F%2Fjonsuh.com%2Ficon.png&description=Short%20description&hashtags=web,development
 		}
 
-		if(in_array("reddit", $setting_share_services))
+		if(in_array('reddit', $setting_share_services))
 		{
 			$out .= "<li class='social reddit'><a href='//www.reddit.com/submit/?url=".$url_to_share."' title='".__("Share on", 'lang_share')." Reddit'><i class='fab fa-reddit'></i></a></li>";
 		}
 
-		if(in_array("twitter", $setting_share_services))
+		if(in_array('twitter', $setting_share_services))
 		{
 			$setting_share_twitter = get_option('setting_share_twitter');
 

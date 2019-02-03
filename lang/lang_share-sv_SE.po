@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 09:17+0100\n"
+"POT-Creation-Date: 2019-02-03 14:11+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -19,105 +19,122 @@ msgstr ""
 msgid "E-mail link"
 msgstr "E-postlänk"
 
-#: ../include/classes.php:20
-#: ../include/classes.php:105
+#: ../include/classes.php:19
+#: ../include/classes.php:93
 msgid "Print"
 msgstr "Skriv ut"
 
-#: ../include/classes.php:40
+#: ../include/classes.php:27
+msgid "Facebook"
+msgstr ""
+
+#: ../include/classes.php:28
+msgid "LinkedIn"
+msgstr ""
+
+#: ../include/classes.php:29
+msgid "Pinterest"
+msgstr ""
+
+#: ../include/classes.php:30
+msgid "Reddit"
+msgstr ""
+
+#: ../include/classes.php:31
+msgid "Twitter"
+msgstr ""
+
+#: ../include/classes.php:38
 msgid "Above Content"
 msgstr "Ovanför innehåll"
 
-#: ../include/classes.php:41
+#: ../include/classes.php:39
 msgid "After Heading"
 msgstr "Efter rubrik"
 
-#: ../include/classes.php:42
+#: ../include/classes.php:40
 msgid "Below Content"
 msgstr "Under innehåll"
 
-#: ../include/classes.php:43
+#: ../include/classes.php:41
 msgid "In Footer"
 msgstr "I sidfoten"
 
-#: ../include/classes.php:89
-#: ../include/classes.php:98
+#: ../include/classes.php:87
 msgid "Recommend this page to a friend"
 msgstr "Tipsa en vän om denna sida"
 
-#: ../include/classes.php:89
-#: ../include/classes.php:98
+#: ../include/classes.php:87
 msgid "Recommend"
 msgstr "Tipsa"
 
-#: ../include/classes.php:105
+#: ../include/classes.php:93
 msgid "Print this page"
 msgstr "Skriv ut denna sida"
 
-#: ../include/classes.php:126
+#: ../include/classes.php:114
+#: ../include/classes.php:119
+#: ../include/classes.php:125
 #: ../include/classes.php:131
-#: ../include/classes.php:136
-#: ../include/classes.php:142
-#: ../include/classes.php:148
-#: ../include/classes.php:156
-#: ../include/classes.php:190
+#: ../include/classes.php:139
+#: ../include/classes.php:173
 msgid "Share on"
 msgstr "Dela på"
 
-#: ../include/classes.php:182
+#: ../include/classes.php:165
 msgid "Show these options"
 msgstr "Visa dessa val"
 
-#: ../include/classes.php:186
-#: ../include/classes.php:199
+#: ../include/classes.php:169
+#: ../include/classes.php:182
 msgid "Show these here"
 msgstr "Visa dessa här"
 
-#: ../include/classes.php:187
+#: ../include/classes.php:170
 msgid "Show titles"
 msgstr "Visa rubriker"
 
-#: ../include/classes.php:194
+#: ../include/classes.php:177
 msgid "Twitter handle"
 msgstr "Twitternamn"
 
-#: ../include/classes.php:205
+#: ../include/classes.php:188
 msgid "Only on these pages"
 msgstr "Endast på dessa sidor"
 
-#: ../include/classes.php:216
+#: ../include/classes.php:194
 msgid "E-mail Subject"
 msgstr "Ämne till e-post"
 
-#: ../include/classes.php:217
+#: ../include/classes.php:195
 msgid "E-mail Content"
 msgstr "Innehåll i e-post"
 
-#: ../include/classes.php:227
-#: ../include/classes.php:340
-#: ../include/classes.php:502
+#: ../include/classes.php:205
+#: ../include/classes.php:308
+#: ../include/classes.php:470
 msgid "Share"
 msgstr "Dela"
 
-#: ../include/classes.php:253
-#: ../include/classes.php:293
+#: ../include/classes.php:221
+#: ../include/classes.php:261
 msgid "Can also be displayed by adding the shortcode"
 msgstr "Kan också visas genom att lägga in kortkoden"
 
-#: ../include/classes.php:314
+#: ../include/classes.php:282
 #, php-format
 msgid "Use %s to automatically add the current page URL into the text"
 msgstr "Använd %s för att automatiskt lägga till nuvarande sid-URL i texten"
 
-#: ../include/classes.php:336
+#: ../include/classes.php:304
 msgid "No"
 msgstr "Nej"
 
-#: ../include/classes.php:337
+#: ../include/classes.php:305
 msgid "Yes"
 msgstr "Ja"
 
-#: ../include/classes.php:493
+#: ../include/classes.php:461
 msgid "Display Social Buttons"
 msgstr "Visa sociala knappar"
 
