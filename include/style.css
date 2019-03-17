@@ -32,8 +32,8 @@
 
 			.mf_share li a
 			{
-				border-bottom: 0;
-				color: inherit;
+				border-bottom: 0 !important;
+				color: inherit !important;
 				display: block;
 				text-decoration: none;
 			}

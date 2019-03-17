@@ -326,9 +326,12 @@ class mf_share
 	{
 		//global $post;
 
-		if($this->is_correct_page())
+		if($this->is_correct_page() || !is_plugin_active("mf_widget_logic_select/index.php") || apply_filters('get_widget_search', 'share-widget') > 0)
 		{
-			mf_enqueue_style('style_share', plugin_dir_url(__FILE__)."style.css", get_plugin_version(__FILE__));
+			$plugin_include_url = plugin_dir_url(__FILE__);
+			$plugin_version = get_plugin_version(__FILE__);
+
+			mf_enqueue_style('style_share', $plugin_include_url."style.css", $plugin_version);
 
 			/*echo "<meta property='og:site_name' content='".get_bloginfo('name')."'>";
 
