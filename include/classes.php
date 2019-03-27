@@ -24,11 +24,11 @@ class mf_share
 	function get_share_services_for_select()
 	{
 		return array(
-			'facebook' => __("Facebook", 'lang_share'),
-			'linkedin' => __("LinkedIn", 'lang_share'),
-			'pinterest' => __("Pinterest", 'lang_share'),
-			'reddit' => __("Reddit", 'lang_share'),
-			'twitter' => __("Twitter", 'lang_share'),
+			'facebook' => "Facebook",
+			'linkedin' => "LinkedIn",
+			'pinterest' => "Pinterest",
+			'reddit' => "Reddit",
+			'twitter' => "Twitter",
 		);
 	}
 
