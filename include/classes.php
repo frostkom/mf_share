@@ -111,24 +111,24 @@ class mf_share
 
 		if(in_array('facebook', $setting_share_services))
 		{
-			$out .= "<li class='social facebook'><a href='//www.facebook.com/sharer/sharer.php?u=".$url_to_share."' title='".__("Share on", 'lang_share')." Facebook'><i class='fab fa-facebook'></i></a></li>";
+			$out .= "<li class='social facebook'><a href='//facebook.com/sharer/sharer.php?u=".$url_to_share."' title='".__("Share on", 'lang_share')." Facebook'><i class='fab fa-facebook'></i></a></li>";
 		}
 
 		if(in_array('linkedin', $setting_share_services))
 		{
-			$out .= "<li class='social linkedin'><a href='//www.linkedin.com/shareArticle?url=".$url_to_share."&mini=true' title='".__("Share on", 'lang_share')." LinkedIn'><i class='fab fa-linkedin-in'></i></a></li>";
+			$out .= "<li class='social linkedin'><a href='//linkedin.com/shareArticle?url=".$url_to_share."&mini=true' title='".__("Share on", 'lang_share')." LinkedIn'><i class='fab fa-linkedin-in'></i></a></li>";
 			//&source=".$url_to_share."&title=Jonathan%20Suh&summary=Short%20summary
 		}
 
 		if(in_array('pinterest', $setting_share_services))
 		{
-			$out .= "<li class='social pinterest'><a href='//www.pinterest.com/pin/create/button/?url=".$url_to_share."' title='".__("Share on", 'lang_share')." Pinterest'><i class='fab fa-pinterest'></i></a></li>";
+			$out .= "<li class='social pinterest'><a href='//pinterest.com/pin/create/button/?url=".$url_to_share."' title='".__("Share on", 'lang_share')." Pinterest'><i class='fab fa-pinterest'></i></a></li>";
 			//&media=https%3A%2F%2Fjonsuh.com%2Ficon.png&description=Short%20description&hashtags=web,development
 		}
 
 		if(in_array('reddit', $setting_share_services))
 		{
-			$out .= "<li class='social reddit'><a href='//www.reddit.com/submit/?url=".$url_to_share."' title='".__("Share on", 'lang_share')." Reddit'><i class='fab fa-reddit'></i></a></li>";
+			$out .= "<li class='social reddit'><a href='//reddit.com/submit/?url=".$url_to_share."' title='".__("Share on", 'lang_share')." Reddit'><i class='fab fa-reddit'></i></a></li>";
 		}
 
 		if(in_array('twitter', $setting_share_services))
@@ -454,7 +454,6 @@ class widget_share extends WP_Widget
 	function widget($args, $instance)
 	{
 		extract($args);
-
 		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
 		if(count($instance['share_services']) > 0)
@@ -472,7 +471,6 @@ class widget_share extends WP_Widget
 	function update($new_instance, $old_instance)
 	{
 		$instance = $old_instance;
-
 		$new_instance = wp_parse_args((array)$new_instance, $this->arr_default);
 
 		$instance['share_services'] = is_array($new_instance['share_services']) ? $new_instance['share_services'] : array();
