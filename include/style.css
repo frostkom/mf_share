@@ -137,3 +137,11 @@
 		display: inline-block;
 	}
 }
+
+@media print
+{
+	.mf_share
+	{
+		display: none;
+	}
+}
