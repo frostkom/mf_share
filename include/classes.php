@@ -47,8 +47,8 @@ class mf_share
 		if(!isset($data['type'])){	$data['type'] = "";}
 		if(!isset($data['url'])){	$data['url'] = "";}
 
-		$setting_share_options = get_option('setting_share_options', array());
-		$setting_share_services = get_option('setting_share_services', array());
+		$setting_share_options = get_option_or_default('setting_share_options', array());
+		$setting_share_services = get_option_or_default('setting_share_services', array());
 
 		$count_options = count($setting_share_options);
 		$count_services = count($setting_share_services);
