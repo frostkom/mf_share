@@ -437,7 +437,7 @@ class widget_share extends WP_Widget
 {
 	function __construct()
 	{
-		$widget_ops = array(
+		$this->widget_ops = array(
 			'classname' => 'mf_share',
 			'description' => __("Display Social Buttons", 'lang_share')
 		);
@@ -448,7 +448,7 @@ class widget_share extends WP_Widget
 
 		$this->obj_share = new mf_share();
 
-		parent::__construct('share-widget', __("Share", 'lang_share'), $widget_ops);
+		parent::__construct('share-widget', __("Share", 'lang_share'), $this->widget_ops);
 	}
 
 	function widget($args, $instance)
