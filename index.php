@@ -2,11 +2,11 @@
 /*
 Plugin Name: MF Share
 Plugin URI: https://github.com/frostkom/mf_share
-Description: 
-Version: 2.5.20
+Description:
+Version: 2.5.21
 Licence: GPLv2 or later
 Author: Martin Fors
-Author URI: https://frostkom.se
+Author URI: https://martinfors.se
 Text Domain: lang_share
 Domain Path: /lang
 
