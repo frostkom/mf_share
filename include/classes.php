@@ -460,7 +460,7 @@ class widget_share extends WP_Widget
 		{
 			$url_to_share = urlencode(get_site_url().$_SERVER['REQUEST_URI']);
 
-			echo $before_widget
+			echo apply_filters('filter_before_widget', $before_widget)
 				."<ul>"
 					.$this->obj_share->show_share_services($instance['share_services'], $url_to_share)
 				."</ul>"
