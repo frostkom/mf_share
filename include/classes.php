@@ -435,18 +435,26 @@ class mf_share
 
 class widget_share extends WP_Widget
 {
+	var $obj_share = "";
+
+	var $widget_ops = array();
+
+	var $arr_default = array(
+		'share_services' => array(),
+	);
+
 	function __construct()
 	{
+		$this->obj_share = new mf_share();
+
 		$this->widget_ops = array(
 			'classname' => 'mf_share',
-			'description' => __("Display Social Buttons", 'lang_share')
+			'description' => __("Display Social Buttons", 'lang_share'),
 		);
 
-		$this->arr_default = array(
+		/*$this->arr_default = array(
 			'share_services' => array(),
-		);
-
-		$this->obj_share = new mf_share();
+		);*/
 
 		parent::__construct('share-widget', __("Share", 'lang_share'), $this->widget_ops);
 	}
