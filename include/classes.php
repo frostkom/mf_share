@@ -152,6 +152,48 @@ class mf_share
 		return $out;
 	}
 
+	function block_render_callback($attributes)
+	{
+		if(!isset($attributes['share_services'])){			$attributes['share_services'] = array();}
+
+		$out = "";
+
+		if(count($attributes['share_services']) > 0)
+		{
+			$url_to_share = urlencode(get_site_url().$_SERVER['REQUEST_URI']);
+
+			echo "<div class='widget mf_share'>
+				<ul>"
+					.$this->show_share_services($attributes['share_services'], $url_to_share)
+				."</ul>
+			</div>";
+		}
+
+		return $out;
+	}
+
+	function init()
+	{
+		// Blocks
+		#######################
+		$plugin_include_url = plugin_dir_url(__FILE__);
+		$plugin_version = get_plugin_version(__FILE__);
+
+		wp_register_script('script_share_block_wp', $plugin_include_url."block/script_wp.js", array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor'), $plugin_version);
+
+		wp_localize_script('script_share_block_wp', 'script_share_block_wp', array(
+			'share_services' => $this->get_share_services_for_select(),
+		));
+
+		register_block_type('mf/share', array(
+			'editor_script' => 'script_share_block_wp',
+			'editor_style' => 'style_base_block_wp',
+			'render_callback' => array($this, 'block_render_callback'),
+			//'style' => 'style_base_block_wp',
+		));
+		#######################
+	}
+
 	function settings_share()
 	{
 		$options_area = __FUNCTION__;
@@ -435,10 +477,8 @@ class mf_share
 
 class widget_share extends WP_Widget
 {
-	var $obj_share = "";
-
-	var $widget_ops = array();
-
+	var $obj_share;
+	var $widget_ops;
 	var $arr_default = array(
 		'share_services' => array(),
 	);
@@ -451,10 +491,6 @@ class widget_share extends WP_Widget
 			'classname' => 'mf_share',
 			'description' => __("Display Social Buttons", 'lang_share'),
 		);
-
-		/*$this->arr_default = array(
-			'share_services' => array(),
-		);*/
 
 		parent::__construct('share-widget', __("Share", 'lang_share'), $this->widget_ops);
 	}
