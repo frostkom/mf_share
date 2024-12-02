@@ -162,7 +162,7 @@ class mf_share
 		{
 			$url_to_share = urlencode(get_site_url().$_SERVER['REQUEST_URI']);
 
-			echo "<div class='widget mf_share".(isset($attributes['className']) && $attributes['className'] != '' ? " ".$attributes['className'] : "")."'>
+			echo "<div".parse_block_attributes(array('class' => "widget mf_share", 'attributes' => $attributes)).">
 				<ul>"
 					.$this->show_share_services($attributes['share_services'], $url_to_share)
 				."</ul>
