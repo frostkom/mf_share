@@ -8,7 +8,7 @@ class mf_share
 	{
 		$pages = get_option('setting_share_pages');
 
-		return $pages == '' || count($pages) == 0 || is_array($pages) && eval("return (".implode(" || ", $pages).");");
+		return ($pages == '' || count($pages) == 0 || is_array($pages) && eval("return (".implode(" || ", $pages).");"));
 	}
 
 	function get_share_options_for_select()
@@ -174,6 +174,8 @@ class mf_share
 
 	function init()
 	{
+		load_plugin_textdomain('lang_share', false, str_replace("/include", "", dirname(plugin_basename(__FILE__)))."/lang/");
+
 		// Blocks
 		#######################
 		$plugin_include_url = plugin_dir_url(__FILE__);

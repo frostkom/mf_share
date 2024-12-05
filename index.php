@@ -3,7 +3,7 @@
 Plugin Name: MF Share
 Plugin URI: https://github.com/frostkom/mf_share
 Description:
-Version: 2.6.2
+Version: 2.6.3
 Licence: GPLv2 or later
 Author: Martin Fors
 Author URI: https://martinfors.se
@@ -52,8 +52,6 @@ if(!function_exists('is_plugin_active') || function_exists('is_plugin_active') &
 	{
 		add_action('widgets_init', array($obj_share, 'widgets_init'));
 	}
-
-	load_plugin_textdomain('lang_share', false, dirname(plugin_basename(__FILE__))."/lang/");
 
 	function activate_share()
 	{
