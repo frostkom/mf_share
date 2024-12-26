@@ -58,18 +58,6 @@
 
 			/* Select */
 			/* ################### */
-			var arr_options = [];
-
-			jQuery.each(script_share_block_wp.share_services, function(index, value)
-			{
-				if(index == "")
-				{
-					index = 0;
-				}
-
-				arr_options.push({label: value, value: index});
-			});
-
 			arr_out.push(el(
 				'div',
 				{className: "wp_mf_block " + props.className},
@@ -78,7 +66,7 @@
 					{
 						label: __("Social Buttons", 'lang_share'),
 						value: props.attributes.share_services,
-						options: arr_options,
+						options: convert_php_array_to_block_js(script_share_block_wp.share_services),
 						multiple: true,
 						onChange: function(value)
 						{
