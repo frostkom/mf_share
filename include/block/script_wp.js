@@ -1,15 +1,14 @@
 (function()
 {
-	var __ = wp.i18n.__,
-		el = wp.element.createElement,
+	var el = wp.element.createElement,
 		registerBlockType = wp.blocks.registerBlockType,
 		SelectControl = wp.components.SelectControl,
 		TextControl = wp.components.TextControl;
 
 	registerBlockType('mf/share',
 	{
-		title: __("Share", 'lang_share'),
-		description: __("Display Social Buttons", 'lang_share'),
+		title: script_share_block_wp.block_title,
+		description: script_share_block_wp.block_description,
 		icon: 'share',
 		category: 'widgets',
 		'attributes':
@@ -54,30 +53,34 @@
 		},
 		edit: function(props)
 		{
-			var arr_out = [];
-
-			/* Select */
-			/* ################### */
-			arr_out.push(el(
+			return el(
 				'div',
-				{className: "wp_mf_block " + props.className},
-				el(
-					SelectControl,
-					{
-						label: __("Social Buttons", 'lang_share'),
-						value: props.attributes.share_services,
-						options: convert_php_array_to_block_js(script_share_block_wp.share_services),
-						multiple: true,
-						onChange: function(value)
-						{
-							props.setAttributes({share_services: value});
-						}
-					}
-				)
-			));
-			/* ################### */
-
-			return arr_out;
+				{className: 'wp_mf_block_container'},
+				[
+					el(
+						InspectorControls,
+						'div',
+						el(
+							SelectControl,
+							{
+								label: script_share_block_wp.share_services_label,
+								value: props.attributes.share_services,
+								options: convert_php_array_to_block_js(script_share_block_wp.share_services),
+								multiple: true,
+								onChange: function(value)
+								{
+									props.setAttributes({share_services: value});
+								}
+							}
+						)
+					),
+					el(
+						'strong',
+						{className: props.className},
+						script_share_block_wp.block_title
+					)
+				]
+			);
 		},
 		save: function()
 		{

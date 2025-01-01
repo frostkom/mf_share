@@ -181,9 +181,12 @@ class mf_share
 		$plugin_include_url = plugin_dir_url(__FILE__);
 		$plugin_version = get_plugin_version(__FILE__);
 
-		wp_register_script('script_share_block_wp', $plugin_include_url."block/script_wp.js", array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor'), $plugin_version);
+		wp_register_script('script_share_block_wp', $plugin_include_url."block/script_wp.js", array('wp-blocks', 'wp-element', 'wp-components', 'wp-editor', 'wp-block-editor'), $plugin_version);
 
 		wp_localize_script('script_share_block_wp', 'script_share_block_wp', array(
+			'block_title' => __("Share", 'lang_share'),
+			'block_description' => __("Display Social Buttons", 'lang_share'),
+			'share_services_label' => __("Social Buttons", 'lang_share'),
 			'share_services' => $this->get_share_services_for_select(),
 		));
 
