@@ -374,9 +374,8 @@ class mf_share
 		if($this->is_correct_page() || !is_plugin_active("mf_widget_logic_select/index.php") || apply_filters('get_widget_search', 'share-widget') > 0)
 		{
 			$plugin_include_url = plugin_dir_url(__FILE__);
-			$plugin_version = get_plugin_version(__FILE__);
 
-			mf_enqueue_style('style_share', $plugin_include_url."style.css", $plugin_version);
+			mf_enqueue_style('style_share', $plugin_include_url."style.css");
 		}
 	}
 
