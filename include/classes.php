@@ -371,7 +371,7 @@ class mf_share
 
 	function wp_head()
 	{
-		if($this->is_correct_page() || apply_filters('get_block_search', 'mf/share') > 0 || !is_plugin_active("mf_widget_logic_select/index.php") || apply_filters('get_widget_search', 'share-widget') > 0)
+		if($this->is_correct_page() || (int)apply_filters('get_block_search', 'mf/share') > 0 || (int)apply_filters('get_widget_search', 'share-widget') > 0)
 		{
 			$plugin_include_url = plugin_dir_url(__FILE__);
 
