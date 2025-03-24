@@ -466,11 +466,17 @@ class mf_share
 
 	function shortcode_share($atts)
 	{
-		extract(shortcode_atts(array(
+		$out = "";
+
+		/*extract(shortcode_atts(array(
 			'type' => ''
 		), $atts));
+		
+		$out = $this->get_share_content(array('type' => $type));*/
 
-		return $this->get_share_content(array('type' => $type));
+		do_log(__FUNCTION__.": Add a block instead (".var_export($atts, true).")");
+
+		return $out;
 	}
 
 	function widgets_init()
