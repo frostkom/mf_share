@@ -330,34 +330,28 @@ class mf_share
 		));
 	}
 
-	function count_shortcode_button($count)
+	/*function count_shortcode_button($count)
 	{
 		if($count == 0)
 		{
-			/*if(has_share())
-			{*/
-				$count++;
-			//}
+			$count++;
 		}
 
 		return $count;
-	}
+	}*/
 
-	function get_shortcode_output($out)
+	/*function get_shortcode_output($out)
 	{
-		/*if(has_share())
-		{*/
-			$arr_data = array(
-				'' => __("No", 'lang_share'),
-				'yes' => __("Yes", 'lang_share')
-			);
+		$arr_data = array(
+			'' => __("No", 'lang_share'),
+			'yes' => __("Yes", 'lang_share')
+		);
 
-			$out .= "<h3>".__("Share", 'lang_share')."</h3>"
-			.show_select(array('data' => $arr_data, 'xtra' => "rel='mf_share type=services'"));
-		//}
+		$out .= "<h3>".__("Share", 'lang_share')."</h3>"
+		.show_select(array('data' => $arr_data, 'xtra' => "rel='mf_share type=services'"));
 
 		return $out;
-	}
+	}*/
 
 	function language_attributes($html)
 	{
@@ -473,7 +467,7 @@ class mf_share
 		/*extract(shortcode_atts(array(
 			'type' => ''
 		), $atts));
-		
+
 		$out = $this->get_share_content(array('type' => $type));*/
 
 		do_log(__FUNCTION__.": Add a block instead (#".$post->ID.", ".var_export($atts, true).")");
