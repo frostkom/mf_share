@@ -477,7 +477,10 @@ class mf_share
 
 	function widgets_init()
 	{
-		register_widget('widget_share');
+		if(wp_is_block_theme() == false)
+		{
+			register_widget('widget_share');
+		}
 	}
 }
 
