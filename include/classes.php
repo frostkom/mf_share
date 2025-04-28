@@ -330,29 +330,6 @@ class mf_share
 		));
 	}
 
-	/*function count_shortcode_button($count)
-	{
-		if($count == 0)
-		{
-			$count++;
-		}
-
-		return $count;
-	}*/
-
-	/*function get_shortcode_output($out)
-	{
-		$arr_data = array(
-			'' => __("No", 'lang_share'),
-			'yes' => __("Yes", 'lang_share')
-		);
-
-		$out .= "<h3>".__("Share", 'lang_share')."</h3>"
-		.show_select(array('data' => $arr_data, 'xtra' => "rel='mf_share type=services'"));
-
-		return $out;
-	}*/
-
 	function language_attributes($html)
 	{
 		if($this->is_correct_page())

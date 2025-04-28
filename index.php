@@ -3,7 +3,7 @@
 Plugin Name: MF Share
 Plugin URI: https://github.com/frostkom/mf_share
 Description:
-Version: 2.6.16
+Version: 2.6.17
 Licence: GPLv2 or later
 Author: Martin Fors
 Author URI: https://martinfors.se
@@ -30,9 +30,6 @@ if(!function_exists('is_plugin_active') || function_exists('is_plugin_active') &
 		register_uninstall_hook(__FILE__, 'uninstall_share');
 
 		add_action('admin_init', array($obj_share, 'settings_share'));
-
-		//add_filter('count_shortcode_button', array($obj_share, 'count_shortcode_button'));
-		//add_filter('get_shortcode_output', array($obj_share, 'get_shortcode_output'));
 	}
 
 	else
